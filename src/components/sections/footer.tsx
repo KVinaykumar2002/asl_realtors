@@ -25,7 +25,7 @@ const Footer = () => {
         whileInView={{ opacity: 1, scale: 1 }}
         viewport={{ once: true }}
         transition={{ duration: 1 }}
-        className="absolute inset-0 flex items-center justify-center pointer-events-none z-0"
+        className="absolute inset-0 flex items-end justify-center pb-10 pointer-events-none z-0"
       >
         <span className="font-black text-white/5 select-none leading-none text-[10rem] sm:text-[12rem] lg:text-[14rem] whitespace-nowrap">
           Livohaus
