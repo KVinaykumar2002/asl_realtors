@@ -67,7 +67,7 @@ const StatItem = ({
         ref={ref}
         whileHover={{ scale: 1.1, y: -5 }}
         transition={{ type: "spring", stiffness: 300, damping: 15 }}
-        className="font-serif text-[48px] font-bold text-text-dark leading-[1.2] tracking-[-0.01em]"
+        className="font-serif text-[48px] font-bold text-text-dark dark:text-white leading-[1.2] tracking-[-0.01em] transition-colors duration-300"
       >
         {count}
         <motion.span
@@ -84,7 +84,7 @@ const StatItem = ({
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ delay: 0.3 + index * 0.2 }}
-        className="mt-2.5 text-base font-normal text-muted-foreground leading-[1.6]"
+        className="mt-2.5 text-base font-normal text-muted-foreground dark:text-neutral-400 leading-[1.6] transition-colors duration-300"
       >
         {title}
       </motion.p>
@@ -94,10 +94,10 @@ const StatItem = ({
 
 const StatsSection = () => {
   return (
-    <section className="bg-background relative overflow-hidden">
+    <section className="bg-background dark:bg-[#0B0B0B] relative overflow-hidden transition-colors duration-300">
       {/* Animated background elements */}
       <motion.div
-        className="absolute top-0 left-0 w-64 h-64 bg-primary/5 rounded-full blur-3xl"
+        className="absolute top-0 left-0 w-64 h-64 bg-primary/5 dark:bg-primary/10 rounded-full blur-3xl"
         animate={{
           x: [0, 100, 0],
           y: [0, 50, 0],
@@ -109,7 +109,7 @@ const StatsSection = () => {
         }}
       />
       <motion.div
-        className="absolute bottom-0 right-0 w-96 h-96 bg-secondary/50 rounded-full blur-3xl"
+        className="absolute bottom-0 right-0 w-96 h-96 bg-secondary/50 dark:bg-white/5 rounded-full blur-3xl"
         animate={{
           x: [0, -100, 0],
           y: [0, -50, 0],

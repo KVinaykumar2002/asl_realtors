@@ -10,7 +10,7 @@ export default function CalculatorsPage() {
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
-      <main className="pt-[88px]">
+      <main className="pt-[120px]">
         <CalculatorTools />
         <div className="container mx-auto px-4 py-20 space-y-20">
           <EmiCalculator />

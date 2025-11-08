@@ -6,7 +6,7 @@ export default function PropertiesPage() {
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
-      <main className="pt-[88px]">
+      <main className="pt-[120px]">
         <PropertiesListing />
       </main>
       <Footer />

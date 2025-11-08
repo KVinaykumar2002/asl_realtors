@@ -8,19 +8,19 @@ import { useParallax } from "@/hooks/use-parallax";
 
 const heroSlides = [
   {
-    image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/5b37b20a-86b6-49b1-af9d-5ab25a370d98-livohaus-framer-website/assets/images/tUSgx4XMKr8Q8ZDMyDkJGYJXE-1.png",
+    image: "/hero-1.png",
     badge: "#1 Choice for Home Renovation in California",
     title: "Building Spaces That Reflect You — With Craft, Care and Complete Control",
     description: "Livohaus transforms homes with timeless design, superior materials, and detail-driven construction — all managed with care from concept to completion.",
   },
   {
-    image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/5b37b20a-86b6-49b1-af9d-5ab25a370d98-livohaus-framer-website/assets/images/Im4wRuRxPa3ij9n8tGFDxaDAys-5.webp",
+    image: "/hero-2.webp",
     badge: "Premium Real Estate Solutions",
     title: "Transform Your Vision Into Reality With Expert Craftsmanship",
     description: "Experience luxury living with our comprehensive renovation services designed to exceed your expectations.",
   },
   {
-    image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/5b37b20a-86b6-49b1-af9d-5ab25a370d98-livohaus-framer-website/assets/images/dQVBhioFSo1V7k0RuZBUvXHww90-6.webp",
+    image: "/hero-3.webp",
     badge: "Award-Winning Designs",
     title: "Creating Dream Homes That Stand The Test of Time",
     description: "From concept to completion, we deliver exceptional results that blend functionality with breathtaking aesthetics.",
@@ -67,15 +67,17 @@ const Hero = () => {
             )
           ))}
         </AnimatePresence>
-        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-black/60" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#0B0B0B]/80 via-[#0B0B0B]/60 to-[#0B0B0B]/90" />
+        {/* Soft gradient to keep navbar readable without hiding imagery */}
+        <div className="absolute inset-x-0 top-0 h-48 bg-gradient-to-b from-[#0B0B0B]/75 via-[#0B0B0B]/40 to-transparent pointer-events-none" />
       </div>
 
       {/* Content */}
       <div className="relative z-10 h-full container mx-auto">
-        <div className="h-full flex flex-col justify-center text-center lg:text-left lg:grid lg:grid-cols-12 lg:gap-x-8">
+        <div className="h-full flex flex-col justify-center text-center lg:text-left lg:grid lg:grid-cols-12 lg:gap-x-8 pt-28 md:pt-32 lg:pt-36">
           
           {/* Main Content Area (Left/Top) */}
-          <div className="lg:col-span-8 lg:my-auto flex flex-col items-center lg:items-start pt-20 lg:pt-0">
+          <div className="lg:col-span-8 lg:my-auto flex flex-col items-center lg:items-start">
             <AnimatePresence mode="wait">
               <motion.div
                 key={currentSlide}
@@ -100,7 +102,7 @@ const Hero = () => {
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.3, duration: 0.8 }}
-                  className="text-5xl md:text-6xl lg:text-[72px] font-bold leading-[1.1] tracking-[-0.02em] max-w-4xl mb-6"
+                  className="text-5xl md:text-6xl lg:text-[72px] font-bold leading-[1.1] tracking-[-0.02em] max-w-4xl mb-6 text-white"
                 >
                   {heroSlides[currentSlide].title}
                 </motion.h1>
@@ -109,7 +111,7 @@ const Hero = () => {
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ delay: 0.5, duration: 0.8 }}
-                  className="text-lg text-white/70 max-w-lg mb-8 leading-[1.6]"
+                  className="text-lg text-white max-w-lg mb-8 leading-[1.6]"
                 >
                   {heroSlides[currentSlide].description}
                 </motion.p>
@@ -121,7 +123,7 @@ const Hero = () => {
                   transition={{ delay: 0.7, duration: 0.5 }}
                   whileHover={{ scale: 1.05, y: -2 }}
                   whileTap={{ scale: 0.95 }}
-                  className="bg-primary text-primary-foreground font-medium py-4 px-8 rounded-full inline-flex items-center gap-3 hover:bg-button-hover transition-colors duration-300 text-base leading-[1.2] shadow-lg hover:shadow-xl"
+                  className="bg-gradient-to-r from-[#FF642F] to-[#FF4800] text-white font-medium py-4 px-8 rounded-full inline-flex items-center gap-3 hover:opacity-90 transition-colors duration-300 text-base leading-[1.2] shadow-lg hover:shadow-xl"
                 >
                   Request Free Quote
                   <ArrowRight className="w-5 h-5" />

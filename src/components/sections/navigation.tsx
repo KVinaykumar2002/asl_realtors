@@ -1,187 +1,171 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
-import Image from "next/image";
-import { Menu, X, ArrowRight } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
+import { Menu, X, Sun, Moon } from "lucide-react";
 
-const navLinks = [
+const NAV_LINKS = [
+  { href: "/", label: "Home" },
   { href: "/about", label: "About" },
   { href: "/services", label: "Services" },
   { href: "/properties", label: "Properties" },
   { href: "/calculators", label: "Calculators" },
   { href: "#testimonials", label: "Testimonials" },
-  { href: "#faq", label: "FAQ's" },
 ];
 
 export default function Navigation() {
-  const [isSticky, setIsSticky] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  // Initialise theme based on saved preference or OS-level setting.
+  const [theme, setTheme] = useState<"light" | "dark">(() => {
+    if (typeof window === "undefined") {
+      return "light";
+    }
+    const storedTheme = window.localStorage.getItem("livohaus-theme");
+    if (storedTheme === "dark" || storedTheme === "light") {
+      return storedTheme;
+    }
+    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+    return prefersDark ? "dark" : "light";
+  });
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsSticky(window.scrollY > 10);
+      setIsScrolled(window.scrollY > 50);
     };
 
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const headerClasses = `fixed top-0 left-0 right-0 z-50 h-[88px] transition-all duration-300 ${
-    isSticky ? "bg-white shadow-[0_2px_12px_rgba(0,0,0,0.04)]" : "bg-transparent"
-  }`;
+  // Persist theme choice and update the root <html> class.
+  useEffect(() => {
+    if (typeof document === "undefined") return;
+    const root = document.documentElement;
+    root.classList.toggle("dark", theme === "dark");
+    window.localStorage.setItem("livohaus-theme", theme);
+  }, [theme]);
 
-  const logoTextColor = isSticky ? "text-text-dark" : "text-white";
-  const navLinkColor = isSticky ? "text-muted-foreground" : "text-white";
-  const hamburgerColor = isSticky ? "text-text-dark" : "text-white";
+  const handleThemeToggle = () => {
+    setTheme((prev) => (prev === "light" ? "dark" : "light"));
+  };
+
+  const headerClasses = [
+    "fixed top-0 left-0 z-50 w-full flex justify-center px-4 sm:px-6 lg:px-12",
+    isScrolled ? "py-3" : "py-6",
+    "transition-all duration-500 ease-in-out",
+  ].join(" ");
+
+  const navClassName = [
+    "mx-auto flex w-full max-w-screen-2xl items-center justify-between",
+    "px-5 sm:px-8 lg:px-10 transition-all duration-500 ease-in-out",
+    isScrolled
+      ? "bg-white/70 dark:bg-neutral-900/70 border border-white/20 dark:border-neutral-800 backdrop-blur-xl shadow-[0_8px_20px_rgba(0,0,0,0.08)] rounded-2xl"
+      : "bg-transparent border border-transparent",
+  ].join(" ");
+
+  const baseTextColor = isScrolled ? "text-neutral-800 dark:text-neutral-100" : "text-white";
+  const desktopToggleClasses = isScrolled
+    ? "border border-white/20 dark:border-white/10 bg-white/80 dark:bg-neutral-900/60 text-neutral-800 dark:text-neutral-100 hover:bg-white/90 dark:hover:bg-neutral-900/40"
+    : "border border-white/30 bg-white/10 text-white hover:bg-white/20";
+  const hamburgerClasses = isScrolled
+    ? "border border-white/20 dark:border-white/10 bg-white/70 dark:bg-neutral-900/70 text-neutral-800 dark:text-neutral-100 hover:bg-white/90 dark:hover:bg-neutral-900/60"
+    : "border border-white/30 bg-white/10 text-white hover:bg-white/20";
+  const mobileShellClasses = isScrolled
+    ? "border border-white/20 dark:border-neutral-800 bg-white/70 dark:bg-neutral-900/80 text-neutral-800 dark:text-neutral-100 backdrop-blur-xl shadow-lg shadow-black/10"
+    : "border border-white/10 bg-neutral-900/70 text-white backdrop-blur-2xl shadow-lg shadow-black/20";
+  const linkClasses = `group relative text-sm font-medium uppercase tracking-[0.18em] ${baseTextColor} transition-colors duration-300 hover:text-[#FF642F]`;
+  const mobileLinkClasses = `relative py-2 transition-colors duration-300 hover:text-[#FF642F] ${isScrolled ? "text-neutral-800 dark:text-neutral-100" : "text-white"}`;
+  const contactButtonClasses = isScrolled
+    ? "inline-flex items-center justify-center rounded-full bg-gradient-to-r from-[#FF642F] to-[#FF4800] px-6 py-2 text-sm font-semibold uppercase tracking-[0.18em] text-white transition-all duration-300 hover:translate-x-1 hover:shadow-[0_12px_30px_rgba(255,100,47,0.32)]"
+    : "inline-flex items-center justify-center rounded-full bg-white px-6 py-2 text-sm font-semibold uppercase tracking-[0.18em] text-neutral-900 transition-all duration-300 hover:bg-white/90 hover:translate-x-1";
 
   return (
-    <motion.header
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.6, ease: "easeOut" }}
-      className={headerClasses}
-    >
-      <div className="container flex h-full items-center justify-between">
-        <Link href="/" className="flex shrink-0 items-center gap-2">
-          <motion.div
-            whileHover={{ rotate: 360, scale: 1.1 }}
-            transition={{ duration: 0.6, ease: "easeInOut" }}
-          >
-            <Image
-              src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/5b37b20a-86b6-49b1-af9d-5ab25a370d98-livohaus-framer-website/assets/svgs/6tTbkXggWgQCAJ4DO2QEdXXmgM-1.svg"
-              alt="Livohaus logo icon"
-              width={32}
-              height={32}
-            />
-          </motion.div>
-          <span className={`text-[28px] font-bold ${logoTextColor} transition-colors duration-300`}>
-            Livohaus
-          </span>
+    <header className={headerClasses} style={{ fontFamily: '"Poppins","Inter",sans-serif' }}>
+      <nav className={navClassName} aria-label="Primary navigation">
+        <Link
+          href="/"
+          className="flex items-center gap-3 transition-transform duration-300 hover:opacity-95"
+          aria-label="Livohaus home"
+        >
+          <span className={`text-2xl font-semibold tracking-wide ${baseTextColor}`}>Livohaus</span>
         </Link>
-        <nav className="hidden items-center gap-8 lg:flex">
-          {navLinks.map((link, index) => (
-            <motion.div
-              key={link.label}
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.1, duration: 0.5 }}
-            >
-              {link.href.startsWith("/") ? (
-                <Link
-                  href={link.href}
-                  className={`nav-link ${navLinkColor} transition-colors hover:text-primary relative group`}
-                >
-                  {link.label}
-                  <motion.span
-                    className="absolute -bottom-1 left-0 h-0.5 bg-primary"
-                    initial={{ width: 0 }}
-                    whileHover={{ width: "100%" }}
-                    transition={{ duration: 0.3 }}
-                  />
-                </Link>
-              ) : (
-                <a
-                  href={link.href}
-                  className={`nav-link ${navLinkColor} transition-colors hover:text-primary relative group`}
-                >
-                  {link.label}
-                  <motion.span
-                    className="absolute -bottom-1 left-0 h-0.5 bg-primary"
-                    initial={{ width: 0 }}
-                    whileHover={{ width: "100%" }}
-                    transition={{ duration: 0.3 }}
-                  />
-                </a>
-              )}
-            </motion.div>
-          ))}
-        </nav>
-        <div className="flex items-center gap-4">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.6, duration: 0.5 }}
-          >
-            <Link
-              href="/contact"
-              className="hidden items-center gap-3 whitespace-nowrap rounded-full bg-primary px-8 py-4 text-base font-medium text-primary-foreground transition-all hover:bg-button-hover lg:flex hover:shadow-lg hover:-translate-y-0.5"
-            >
-              Contact Us
-              <ArrowRight size={20} />
+
+        <div className="hidden flex-1 items-center justify-center gap-12 lg:flex">
+          {NAV_LINKS.map(({ href, label }) => (
+            <Link key={label} href={href} className={linkClasses}>
+              {label}
+              <span className="absolute -bottom-2 left-1/2 h-0.5 w-0 -translate-x-1/2 bg-[#FF642F] transition-all duration-300 group-hover:w-8" />
             </Link>
-          </motion.div>
-          <motion.button
-            className={`lg:hidden ${hamburgerColor}`}
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-            aria-label="Toggle menu"
-            whileTap={{ scale: 0.9 }}
+          ))}
+        </div>
+
+        <div className="ml-auto hidden items-center space-x-3 lg:flex">
+          <Link
+            href="/contact"
+            className={contactButtonClasses}
           >
-            {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
-          </motion.button>
+            Contact →
+          </Link>
+          <button
+            type="button"
+            onClick={handleThemeToggle}
+            aria-label="Toggle theme"
+            className={`flex h-11 w-11 items-center justify-center rounded-full border transition-colors duration-300 ${desktopToggleClasses}`}
+          >
+            {theme === "dark" ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
+          </button>
+        </div>
+
+        <button
+          type="button"
+          onClick={() => setIsMenuOpen((prev) => !prev)}
+          className={`flex h-11 w-11 items-center justify-center rounded-full border transition-colors duration-300 hover:text-[#FF642F] lg:hidden ${hamburgerClasses}`}
+          aria-label="Toggle navigation menu"
+        >
+          {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+        </button>
+      </nav>
+
+      <div
+        className={`fixed inset-x-4 top-[92px] z-40 overflow-hidden rounded-2xl transition-all ease-in-out lg:hidden ${mobileShellClasses} ${
+          isMenuOpen ? "max-h-[480px] opacity-100" : "pointer-events-none max-h-0 opacity-0"
+        }`}
+        style={{ fontFamily: '"Poppins","Inter",sans-serif', transitionDuration: "400ms" }}
+      >
+        <div className="flex flex-col gap-3 px-6 py-6 text-base font-medium uppercase tracking-[0.2em]">
+          {NAV_LINKS.map(({ href, label }) => (
+            <Link
+              key={label}
+              href={href}
+              onClick={() => setIsMenuOpen(false)}
+              className={mobileLinkClasses}
+            >
+              {label}
+            </Link>
+          ))}
+          <button
+            type="button"
+            onClick={handleThemeToggle}
+            className={`mt-2 flex items-center justify-center gap-2 rounded-full border px-5 py-3 text-sm font-semibold uppercase tracking-[0.18em] transition-colors duration-300 ${
+              theme === "dark"
+                ? "border-white/20 bg-white/5 text-[#f5f5f5] hover:bg-white/10"
+                : "border-white/40 bg-white/70 text-[#222222] hover:bg-white/90"
+            }`}
+          >
+            {theme === "dark" ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
+            <span>{theme === "dark" ? "Light Mode" : "Dark Mode"}</span>
+          </button>
+          <Link
+            href="/contact"
+            onClick={() => setIsMenuOpen(false)}
+            className="mt-3 inline-flex items-center justify-center rounded-full bg-gradient-to-r from-[#FF642F] to-[#FF4800] px-6 py-3 text-sm font-semibold uppercase tracking-[0.18em] text-white transition-transform duration-300 hover:translate-x-1 hover:shadow-[0_14px_40px_rgba(255,100,47,0.35)]"
+          >
+            Contact →
+          </Link>
         </div>
       </div>
-      <AnimatePresence>
-        {isMenuOpen && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.3 }}
-            className="absolute top-[88px] left-0 w-full bg-white shadow-lg lg:hidden overflow-hidden"
-          >
-            <motion.nav
-              initial={{ y: -20 }}
-              animate={{ y: 0 }}
-              className="container flex flex-col items-center gap-6 py-8"
-            >
-              {navLinks.map((link, index) => (
-                <motion.div
-                  key={link.label}
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: index * 0.1 }}
-                >
-                  {link.href.startsWith("/") ? (
-                    <Link
-                      href={link.href}
-                      className="nav-link text-muted-foreground transition-colors hover:text-primary"
-                      onClick={() => setIsMenuOpen(false)}
-                    >
-                      {link.label}
-                    </Link>
-                  ) : (
-                    <a
-                      href={link.href}
-                      className="nav-link text-muted-foreground transition-colors hover:text-primary"
-                      onClick={() => setIsMenuOpen(false)}
-                    >
-                      {link.label}
-                    </a>
-                  )}
-                </motion.div>
-              ))}
-              <motion.div
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 0.6 }}
-              >
-                <Link
-                  href="/contact"
-                  className="mt-2 flex items-center gap-3 whitespace-nowrap rounded-full bg-primary px-8 py-4 text-base font-medium text-primary-foreground transition-colors hover:bg-button-hover"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  Contact Us
-                  <ArrowRight size={20} />
-                </Link>
-              </motion.div>
-            </motion.nav>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </motion.header>
+    </header>
   );
 }

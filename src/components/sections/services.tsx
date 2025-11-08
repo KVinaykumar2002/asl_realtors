@@ -43,7 +43,7 @@ const Services = () => {
   const { ref, isVisible } = useScrollAnimation(0.1);
 
   return (
-    <section id="services" className="bg-secondary text-text-dark py-16 md:py-20 lg:py-[120px]">
+    <section id="services" className="bg-secondary dark:bg-[#0B0B0B] text-text-dark dark:text-white py-16 md:py-20 lg:py-[120px] transition-colors duration-300">
       <div className="max-w-[1200px] mx-auto px-5 md:px-10 lg:px-20">
         <div ref={ref} className="flex flex-col gap-16">
           <header className="flex flex-col lg:flex-row lg:justify-between lg:items-end gap-8">
@@ -57,7 +57,7 @@ const Services = () => {
                 initial={{ scale: 0.8, opacity: 0 }}
                 animate={isVisible ? { scale: 1, opacity: 1 } : {}}
                 transition={{ duration: 0.5 }}
-                className="inline-flex items-center gap-2 rounded-full border border-black/10 bg-primary/10 px-4 py-2 mb-6"
+                className="inline-flex items-center gap-2 rounded-full border border-black/10 dark:border-white/10 bg-primary/10 dark:bg-neutral-900/60 px-4 py-2 mb-6 backdrop-blur-md transition-colors duration-300"
               >
                 <motion.div
                   animate={{ rotate: 360 }}
@@ -67,7 +67,7 @@ const Services = () => {
                 </motion.div>
                 <h6 className="text-primary text-sm font-semibold uppercase tracking-[0.05em]">Our Services</h6>
               </motion.div>
-              <h2 className="text-[48px] font-bold leading-[1.2] tracking-[-0.01em]">
+              <h2 className="text-[48px] font-bold leading-[1.2] tracking-[-0.01em] text-current dark:text-white transition-colors duration-300">
                 Custom <span className="text-primary">Renovation</span> Services Designed to Fit Your Life
               </h2>
             </motion.div>
@@ -77,14 +77,13 @@ const Services = () => {
               transition={{ duration: 0.8, delay: 0.2 }}
               className="w-full lg:flex-1 lg:max-w-[480px]"
             >
-              <p className="text-body-regular text-text-body mb-8">
+              <p className="text-body-regular text-text-body dark:text-neutral-400 mb-8 transition-colors duration-300">
                 From design to delivery, we offer end-to-end solutions tailored to your space, style, and schedule. Whether you're updating one room or remodeling your entire home, Livohaus makes it seamless.
               </p>
               <Link
                 href="/#contact"
-                className="group relative inline-flex items-center justify-center gap-3 rounded-full bg-primary px-8 py-4 text-primary-foreground transition-all hover:bg-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 overflow-hidden hover:shadow-lg hover:-translate-y-1"
+                className="group relative inline-flex items-center justify-center gap-3 rounded-full bg-gradient-to-r from-[#FF642F] to-[#FF4800] px-8 py-4 text-white transition-all duration-300 hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF642F] focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-[#0B0B0B] overflow-hidden hover:shadow-lg hover:-translate-y-1"
               >
-                <span className="absolute inset-0 z-0 scale-50 rounded-full bg-button-hover opacity-0 transition-transform duration-300 ease-out group-hover:scale-100 group-hover:opacity-100"></span>
                 <span className="relative z-10 btn-text">Request Free Quote</span>
                 <ArrowRight className="relative z-10 h-5 w-5 transition-transform group-hover:translate-x-1" />
               </Link>
@@ -98,7 +97,7 @@ const Services = () => {
                 initial={{ opacity: 0, y: 50 }}
                 animate={isVisible ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
-                className={`group relative h-[480px] overflow-hidden rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.08)] ${service.gridClassName}`}
+                className={`group relative h-[480px] overflow-hidden rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.08)] dark:shadow-none border border-transparent dark:border-white/10 ${service.gridClassName}`}
               >
                 <motion.div
                   whileHover={{ scale: 1.05 }}
@@ -113,7 +112,7 @@ const Services = () => {
                     className="object-cover"
                   />
                 </motion.div>
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent transition-opacity group-hover:from-black/70" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0B0B0B]/90 via-[#0B0B0B]/60 to-transparent transition-opacity group-hover:from-[#0B0B0B]/95" />
                 <motion.div
                   initial={{ y: 20, opacity: 0 }}
                   whileInView={{ y: 0, opacity: 1 }}

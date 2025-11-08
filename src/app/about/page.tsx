@@ -8,9 +8,9 @@ import Testimonials from "@/components/sections/testimonials";
 
 export default function AboutPage() {
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background dark:bg-black">
       <Navigation />
-      <main className="pt-[88px]">
+      <main className="pt-[120px]">
         <AboutHero />
         <StatsSection />
         <AboutSection />

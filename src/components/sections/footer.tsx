@@ -19,18 +19,18 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="bg-[#0A0A0A] text-white relative overflow-hidden">
-      <div className="absolute inset-x-0 bottom-0 flex items-end justify-center z-0 pointer-events-none overflow-hidden">
-        <motion.h3
-          initial={{ opacity: 0, y: 100 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 1 }}
-          className="font-black text-white/5 whitespace-nowrap leading-none select-none text-[150px] sm:text-[200px] md:text-[280px] lg:text-[352px] -mb-8 sm:-mb-10 md:-mb-14 lg:-mb-24"
-        >
+    <footer className="bg-[#0B0B0B] text-white relative overflow-hidden transition-colors duration-300">
+      <motion.div
+        initial={{ opacity: 0, scale: 0.95 }}
+        whileInView={{ opacity: 1, scale: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 1 }}
+        className="absolute inset-0 flex items-center justify-center pointer-events-none z-0"
+      >
+        <span className="font-black text-white/5 select-none leading-none text-[10rem] sm:text-[12rem] lg:text-[14rem] whitespace-nowrap">
           Livohaus
-        </motion.h3>
-      </div>
+        </span>
+      </motion.div>
 
       <div className="relative z-10 max-w-[1200px] mx-auto px-5 md:px-10 lg:px-20 pt-24 pb-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 md:gap-8 mb-20">
@@ -48,7 +48,7 @@ const Footer = () => {
               href="#contact"
               whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.95 }}
-              className="inline-flex items-center justify-center rounded-full bg-primary px-8 py-3.5 text-base font-medium text-primary-foreground shadow-sm transition-colors hover:bg-primary/90"
+              className="inline-flex items-center justify-center rounded-full bg-gradient-to-r from-[#FF642F] to-[#FF4800] px-8 py-3.5 text-base font-medium text-white shadow-sm transition-opacity duration-300 hover:opacity-90"
               aria-label="Request a free quote"
             >
               Request Free Quote

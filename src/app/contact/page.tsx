@@ -7,7 +7,7 @@ export default function ContactPage() {
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
-      <main className="pt-[88px]">
+      <main className="pt-[120px]">
         <ContactInfo />
         <ContactFormSection />
       </main>

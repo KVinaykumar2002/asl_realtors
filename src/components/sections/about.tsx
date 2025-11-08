@@ -57,11 +57,11 @@ const StatCounter: React.FC<StatCounterProps> = ({ value, suffix, label }) => {
       transition={{ type: "spring", stiffness: 300, damping: 20 }}
       className="flex flex-col items-start"
     >
-      <p className="text-4xl md:text-5xl font-bold text-text-dark">
+      <p className="text-4xl md:text-5xl font-bold text-text-dark dark:text-white transition-colors duration-300">
         {count}
         {suffix && <span className="text-primary">{suffix}</span>}
       </p>
-      <p className="mt-2 text-body-regular text-text-body">{label}</p>
+      <p className="mt-2 text-body-regular text-text-body dark:text-neutral-400 transition-colors duration-300">{label}</p>
     </motion.div>
   );
 };
@@ -70,24 +70,30 @@ const AboutSection = () => {
   const { ref: sectionRef, isVisible } = useScrollAnimation(0.1);
 
   return (
-    <section id="about" className="bg-secondary py-20 lg:py-[120px] relative overflow-hidden">
+    <section
+      id="about"
+      className="bg-secondary dark:bg-[#0B0B0B] py-20 lg:py-[120px] relative overflow-hidden transition-colors duration-300"
+    >
       {/* Animated background patterns */}
       <motion.div
-        className="absolute top-20 right-20 w-72 h-72 border-4 border-primary/10 rounded-full"
+        className="absolute top-20 right-20 w-72 h-72 border-4 border-primary/10 dark:border-white/5 rounded-full"
         animate={{ rotate: 360 }}
         transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
       />
       <motion.div
-        className="absolute bottom-20 left-20 w-48 h-48 border-4 border-primary/10 rounded-full"
+        className="absolute bottom-20 left-20 w-48 h-48 border-4 border-primary/10 dark:border-white/5 rounded-full"
         animate={{ rotate: -360 }}
         transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
       />
 
-      <div className="container relative z-10">
-        <div ref={sectionRef} className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+      <div className="container relative z-10 px-6 md:px-12 lg:px-20">
+        <div
+          ref={sectionRef}
+          className="grid grid-cols-1 md:grid-cols-2 items-center gap-8 md:gap-10 lg:gap-20 py-16 lg:py-24"
+        >
           
           {/* Image Grid */}
-          <div className="flex flex-col sm:flex-row items-center sm:items-start justify-center gap-4">
+          <div className="flex flex-col sm:flex-row items-center sm:items-start justify-center gap-4 lg:gap-6">
             <motion.div
               initial={{ opacity: 0, x: -100, rotateY: -20 }}
               animate={isVisible ? { opacity: 1, x: 0, rotateY: 0 } : {}}
@@ -97,7 +103,7 @@ const AboutSection = () => {
               <motion.div
                 whileHover={{ scale: 1.02, rotateY: 5 }}
                 transition={{ duration: 0.3 }}
-                className="relative overflow-hidden rounded-2xl w-full h-[360px] sm:w-[388px] sm:h-[582px] shadow-2xl"
+                className="relative overflow-hidden rounded-2xl w-full h-[360px] sm:w-[388px] sm:h-[582px] shadow-2xl border border-white/10 dark:border-white/10 bg-white dark:bg-neutral-900/60 backdrop-blur-md transition-colors duration-300"
               >
                 <Image
                   src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/5b37b20a-86b6-49b1-af9d-5ab25a370d98-livohaus-framer-website/assets/images/vFndoLcfA59aVF8pqjh2ugiHfE-2.jpeg"
@@ -117,7 +123,7 @@ const AboutSection = () => {
                 <motion.div
                   whileHover={{ scale: 1.02, rotateZ: 2 }}
                   transition={{ duration: 0.3 }}
-                  className="relative overflow-hidden rounded-2xl w-full h-[282px] sm:w-[282px] sm:h-[282px] shadow-xl"
+                  className="relative overflow-hidden rounded-2xl w-full h-[282px] sm:w-[282px] sm:h-[282px] shadow-xl border border-white/10 dark:border-white/10 bg-white dark:bg-neutral-900/60 backdrop-blur-md transition-colors duration-300"
                 >
                   <Image
                     src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/5b37b20a-86b6-49b1-af9d-5ab25a370d98-livohaus-framer-website/assets/images/tdbYj955g6CmqYHaCPdteCGNbQ8-3.webp"
@@ -136,7 +142,7 @@ const AboutSection = () => {
                 <motion.div
                   whileHover={{ scale: 1.02, rotateZ: -2 }}
                   transition={{ duration: 0.3 }}
-                  className="relative overflow-hidden rounded-2xl w-full h-[282px] sm:w-[282px] sm:h-[282px] shadow-xl"
+                  className="relative overflow-hidden rounded-2xl w-full h-[282px] sm:w-[282px] sm:h-[282px] shadow-xl border border-white/10 dark:border-white/10 bg-white dark:bg-neutral-900/60 backdrop-blur-md transition-colors duration-300"
                 >
                   <Image
                     src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/5b37b20a-86b6-49b1-af9d-5ab25a370d98-livohaus-framer-website/assets/images/0boRvvQ1DjJHQaXT7ksu9cmVRA-4.png"
@@ -154,13 +160,13 @@ const AboutSection = () => {
             initial={{ opacity: 0, x: 100 }}
             animate={isVisible ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.3 }}
-            className="flex flex-col gap-6"
+            className="flex flex-col gap-6 lg:pl-10"
           >
             <motion.div
               initial={{ scale: 0.8, opacity: 0 }}
               animate={isVisible ? { scale: 1, opacity: 1 } : {}}
               transition={{ duration: 0.5, delay: 0.4 }}
-              className="inline-flex items-center gap-2 self-start py-1.5 pl-2.5 pr-4 border border-primary rounded-full"
+              className="inline-flex items-center gap-2 self-start py-1.5 pl-2.5 pr-4 border border-primary/60 dark:border-white/10 rounded-full bg-white/60 dark:bg-neutral-900/60 backdrop-blur-md transition-colors duration-300"
             >
               <motion.div
                 animate={{ rotate: [0, 10, -10, 0] }}
@@ -174,7 +180,7 @@ const AboutSection = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={isVisible ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.5 }}
-              className="text-4xl md:text-5xl font-bold text-text-dark leading-tight"
+              className="text-4xl md:text-5xl font-bold text-text-dark dark:text-white leading-tight transition-colors duration-300"
             >
               Transforming California Homes with <span className="text-primary">Vision, Craft, and Care.</span>
             </motion.h2>
@@ -182,7 +188,7 @@ const AboutSection = () => {
               initial={{ opacity: 0 }}
               animate={isVisible ? { opacity: 1 } : {}}
               transition={{ duration: 0.6, delay: 0.6 }}
-              className="text-body-large text-text-body"
+              className="text-body-large text-text-body dark:text-neutral-400 transition-colors duration-300"
             >
               At Livohaus, we specialize in bringing your renovation dreams to life — with thoughtful design, expert craftsmanship, and an obsessive attention to detail. Based in California and proudly serving homeowners since 2008, we're more than just a renovation firm.
             </motion.p>

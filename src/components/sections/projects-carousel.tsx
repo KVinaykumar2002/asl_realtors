@@ -176,7 +176,7 @@ export default function ProjectsCarousel() {
               onClick={scrollPrev}
               whileHover={{ scale: 1.1, x: -5 }}
               whileTap={{ scale: 0.9 }}
-              className="absolute z-10 top-1/2 -translate-y-1/2 left-[calc(50%-330px)] hidden lg:flex items-center justify-center h-14 w-14 rounded-full bg-primary text-white hover:bg-button-hover transition-colors duration-300 shadow-lg"
+              className="absolute z-10 top-1/2 left-4 xl:left-10 -translate-y-1/2 hidden lg:flex items-center justify-center h-14 w-14 rounded-full bg-primary text-white hover:bg-button-hover transition-colors duration-300 shadow-lg"
               aria-label="Previous project"
             >
               <ChevronLeft className="h-7 w-7" />
@@ -185,7 +185,7 @@ export default function ProjectsCarousel() {
               onClick={scrollNext}
               whileHover={{ scale: 1.1, x: 5 }}
               whileTap={{ scale: 0.9 }}
-              className="absolute z-10 top-1/2 -translate-y-1/2 right-[calc(50%-330px)] hidden lg:flex items-center justify-center h-14 w-14 rounded-full bg-primary text-white hover:bg-button-hover transition-colors duration-300 shadow-lg"
+              className="absolute z-10 top-1/2 right-4 xl:right-10 -translate-y-1/2 hidden lg:flex items-center justify-center h-14 w-14 rounded-full bg-primary text-white hover:bg-button-hover transition-colors duration-300 shadow-lg"
               aria-label="Next project"
             >
               <ChevronRight className="h-7 w-7" />

@@ -9,7 +9,7 @@ export default function ServicesPage() {
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
-      <main className="pt-[88px]">
+      <main className="pt-[120px]">
         <ServicesHero />
         <Services />
         <ProcessSection />
