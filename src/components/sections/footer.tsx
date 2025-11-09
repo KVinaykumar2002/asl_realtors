@@ -64,17 +64,15 @@ const Footer = () => {
             className="lg:col-span-2"
           >
             <div className="flex items-center gap-4 mb-6">
-              <div className="relative h-14 w-14 overflow-hidden rounded-xl bg-white/90 p-1 shadow-md dark:bg-white/10">
-                <Image
-                  src="/logo.jpg"
-                  alt="ASL Realtors logo"
-                  fill
-                  sizes="56px"
-                  className="object-contain"
-                  priority
-                />
-              </div>
-              <span className="text-xl font-semibold tracking-wide text-white">ASL Realtors</span>
+              <Image
+                src="/logo.png"
+                alt="ASL Realtors logo"
+                width={200}
+                height={900}
+                className="h-15 w-auto object-contain"
+                priority
+              />
+              <span className="text-xl font-semibold tracking-wide text-white"></span>
             </div>
             <h2 className="text-3xl md:text-4xl lg:text-[2.75rem] font-semibold leading-snug text-white mb-8">
               Your trusted partner in
@@ -194,15 +192,7 @@ const Footer = () => {
               OptiWebtrix Team
             </a>
           </p>
-          <p>
-            Crafted with care ✦ Powered by{" "}
-            <a
-              href="#"
-              className="text-[#FF5C28] hover:underline transition-colors"
-            >
-              Framer
-            </a>
-          </p>
+
         </motion.div>
       </div>
     </footer>

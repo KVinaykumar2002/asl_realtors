@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useMemo, useRef } from "react";
 import Image from "next/image";
 import { MessageSquare } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
@@ -94,54 +94,75 @@ const StarRating = ({ rating }: { rating: number }) => (
   </div>
 );
 
-export default function Testimonials() {
-  const { ref, isVisible } = useScrollAnimation(0.1);
-  const scrollContainerRef = useRef<HTMLDivElement>(null);
-
+function useAutoScroll(
+  ref: React.RefObject<HTMLDivElement | null>,
+  speed: number,
+  direction: 1 | -1
+) {
   useEffect(() => {
-    const scrollContainer = scrollContainerRef.current;
-    if (!scrollContainer) return;
+    const container = ref.current;
+    if (!container) return;
 
     let animationFrameId: number;
-    let scrollPosition = 0;
-    const scrollSpeed = 0.5;
+    let scrollPosition = direction === 1 ? 0 : container.scrollWidth / 2;
 
-    const autoScroll = () => {
-      scrollPosition += scrollSpeed;
-      
-      if (scrollContainer) {
-        scrollContainer.scrollLeft = scrollPosition;
-        
-        // Reset scroll when reaching the end
-        if (scrollPosition >= scrollContainer.scrollWidth / 2) {
-          scrollPosition = 0;
-        }
+    const step = () => {
+      const maxScroll = container.scrollWidth / 2;
+      scrollPosition += speed * direction;
+
+      if (direction === 1 && scrollPosition >= maxScroll) {
+        scrollPosition = 0;
       }
-      
-      animationFrameId = requestAnimationFrame(autoScroll);
+      if (direction === -1 && scrollPosition <= 0) {
+        scrollPosition = maxScroll;
+      }
+
+      container.scrollLeft = scrollPosition;
+      animationFrameId = requestAnimationFrame(step);
     };
 
-    animationFrameId = requestAnimationFrame(autoScroll);
+    animationFrameId = requestAnimationFrame(step);
 
-    const handleMouseEnter = () => {
-      cancelAnimationFrame(animationFrameId);
-    };
-
+    const handleMouseEnter = () => cancelAnimationFrame(animationFrameId);
     const handleMouseLeave = () => {
-      animationFrameId = requestAnimationFrame(autoScroll);
+      cancelAnimationFrame(animationFrameId);
+      animationFrameId = requestAnimationFrame(step);
     };
 
-    scrollContainer.addEventListener("mouseenter", handleMouseEnter);
-    scrollContainer.addEventListener("mouseleave", handleMouseLeave);
+    container.addEventListener("mouseenter", handleMouseEnter);
+    container.addEventListener("mouseleave", handleMouseLeave);
 
     return () => {
       cancelAnimationFrame(animationFrameId);
-      scrollContainer.removeEventListener("mouseenter", handleMouseEnter);
-      scrollContainer.removeEventListener("mouseleave", handleMouseLeave);
+      container.removeEventListener("mouseenter", handleMouseEnter);
+      container.removeEventListener("mouseleave", handleMouseLeave);
+    };
+  }, [ref, speed, direction]);
+}
+
+export default function Testimonials() {
+  const { ref, isVisible } = useScrollAnimation(0.1);
+  const topRowRef = useRef<HTMLDivElement>(null);
+  const bottomRowRef = useRef<HTMLDivElement>(null);
+
+  const { topRow, bottomRow } = useMemo(() => {
+    const even: typeof testimonialsData = [];
+    const odd: typeof testimonialsData = [];
+    testimonialsData.forEach((item, index) => {
+      if (index % 2 === 0) {
+        even.push(item);
+      } else {
+        odd.push(item);
+      }
+    });
+    return {
+      topRow: [...even, ...even],
+      bottomRow: [...odd, ...odd],
     };
   }, []);
 
-  const doubledTestimonials = [...testimonialsData, ...testimonialsData];
+  useAutoScroll(topRowRef, 0.6, 1);
+  useAutoScroll(bottomRowRef, 0.6, -1);
 
   return (
     <section id="testimonials" className="bg-[#FDF8F3] py-20 lg:py-28">
@@ -162,41 +183,36 @@ export default function Testimonials() {
             </p>
           </div>
 
-          {/* Auto-scrolling testimonials */}
-          <div 
-            ref={scrollContainerRef}
-            className="overflow-hidden cursor-pointer"
-            style={{ scrollBehavior: "auto" }}
-          >
-            <div className="flex gap-6 w-max">
-              {doubledTestimonials.map((testimonial, index) => (
-                <div 
-                  key={`${testimonial.id}-${index}`}
-                  className="bg-white rounded-2xl p-8 relative flex flex-col shadow-[0_4px_10px_rgba(0,0,0,0.05)] transition-all duration-300 hover:shadow-xl w-[380px] flex-shrink-0"
-                >
-                  <QuotationMark className="text-primary/10 absolute top-8 right-8 w-12 h-12" />
-                  
-                  <StarRating rating={testimonial.rating} />
-                  
-                  <p className="text-muted-foreground text-base leading-relaxed my-6 flex-grow">
-                    {testimonial.quote}
-                  </p>
-                  
-                  <div className="flex items-center gap-4 mt-auto">
-                    <Image
-                      src={testimonial.avatar}
-                      alt={`Avatar of ${testimonial.name}`}
-                      width={48}
-                      height={48}
-                      className="rounded-full object-cover"
-                    />
-                    <div>
-                      <p className="font-bold text-text-dark">{testimonial.name}</p>
-                      <p className="text-sm text-muted-foreground">{testimonial.location}</p>
-                    </div>
-                  </div>
-                </div>
-              ))}
+          {/* Dual-row marquee testimonials */}
+          <div className="flex flex-col gap-8">
+            <div
+              ref={topRowRef}
+              className="overflow-hidden"
+              style={{ scrollBehavior: "auto" }}
+            >
+              <div className="flex w-max gap-6">
+                {topRow.map((testimonial, index) => (
+                  <TestimonialCard
+                    key={`top-${testimonial.id}-${index}`}
+                    testimonial={testimonial}
+                  />
+                ))}
+              </div>
+            </div>
+
+            <div
+              ref={bottomRowRef}
+              className="overflow-hidden"
+              style={{ scrollBehavior: "auto" }}
+            >
+              <div className="flex w-max gap-6">
+                {bottomRow.map((testimonial, index) => (
+                  <TestimonialCard
+                    key={`bottom-${testimonial.id}-${index}`}
+                    testimonial={testimonial}
+                  />
+                ))}
+              </div>
             </div>
           </div>
 
@@ -225,5 +241,36 @@ export default function Testimonials() {
         </div>
       </div>
     </section>
+  );
+}
+
+type TestimonialProps = {
+  testimonial: (typeof testimonialsData)[number];
+};
+
+function TestimonialCard({ testimonial }: TestimonialProps) {
+  return (
+    <div className="relative w-[360px] flex-shrink-0 rounded-3xl border border-[#F3E7DD] bg-white p-8 shadow-[0_12px_30px_rgba(31,43,64,0.08)] transition-transform duration-500 hover:-translate-y-2 hover:shadow-[0_24px_60px_rgba(31,43,64,0.12)] sm:p-10">
+      <QuotationMark className="text-primary/10 absolute top-8 right-8 w-12 h-12" />
+      <StarRating rating={testimonial.rating} />
+      <p className="mt-6 min-h-[72px] text-base leading-relaxed text-[#5F6470] sm:text-lg">
+        {testimonial.quote}
+      </p>
+      <div className="mt-8 flex items-center gap-4">
+        <Image
+          src={testimonial.avatar}
+          alt={`Avatar of ${testimonial.name}`}
+          width={54}
+          height={54}
+          className="rounded-full object-cover"
+        />
+        <div>
+          <p className="text-base font-semibold text-[#1B1D24]">
+            {testimonial.name}
+          </p>
+          <p className="text-sm text-[#6F7787]">{testimonial.location}</p>
+        </div>
+      </div>
+    </div>
   );
 }

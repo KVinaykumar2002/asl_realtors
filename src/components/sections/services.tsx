@@ -1,46 +1,130 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
-import { Cog, ArrowRight } from "lucide-react";
+import { Cog, ArrowRight, X } from "lucide-react";
 import { motion } from "framer-motion";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 
 const servicesData = [
   {
     title: "Full-Home Renovation",
     description: "Complete home transformations tailored to your style and needs.",
-    imageUrl: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/5b37b20a-86b6-49b1-af9d-5ab25a370d98-livohaus-framer-website/assets/images/Im4wRuRxPa3ij9n8tGFDxaDAys-5.webp",
-    gridClassName: "lg:col-span-2",
+    mediaType: "video",
+    gridClassName: "lg:col-span-1",
+    videoUrl: "https://res.cloudinary.com/dqvsoqsoy/video/upload/v1762633896/WhatsApp_Video_2025-11-08_at_11.21.14_PM_twburd.mp4",
   },
   {
     title: "Kitchen Remodeling",
     description: "Smart, stylish kitchens built for daily living.",
-    imageUrl: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/5b37b20a-86b6-49b1-af9d-5ab25a370d98-livohaus-framer-website/assets/images/dQVBhioFSo1V7k0RuZBUvXHww90-6.webp",
-    gridClassName: "lg:col-span-2",
+    mediaType: "video",
+    gridClassName: "lg:col-span-1",
+    videoUrl: "https://res.cloudinary.com/dqvsoqsoy/video/upload/v1762633890/WhatsApp_Video_2025-11-08_at_11.21.17_PM_bxpuvh.mp4",
   },
   {
     title: "Bathroom Renovation",
     description: "Modern, functional bathrooms with lasting comfort and quality.",
-    imageUrl: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/5b37b20a-86b6-49b1-af9d-5ab25a370d98-livohaus-framer-website/assets/images/er9ElXqyF4wyN9WZZRVHGgH0IY-7.webp",
-    gridClassName: "lg:col-span-2",
+    mediaType: "video",
+    gridClassName: "lg:col-span-1",
+    videoUrl: "https://res.cloudinary.com/dqvsoqsoy/video/upload/v1762633889/WhatsApp_Video_2025-11-08_at_11.17.06_PM_qfymr0.mp4",
   },
   {
     title: "Outdoor Living Spaces",
     description: "Extend your home with inviting patios, decks, and garden zones.",
-    imageUrl: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/5b37b20a-86b6-49b1-af9d-5ab25a370d98-livohaus-framer-website/assets/images/POxVH1JgZSlrsqIG0tAPuthBD8-8.png",
-    gridClassName: "md:col-start-auto lg:col-start-2 lg:col-span-2",
+    mediaType: "video",
+    gridClassName: "lg:col-span-1",
+    videoUrl: "https://res.cloudinary.com/dqvsoqsoy/video/upload/v1762633905/WhatsApp_Video_2025-11-08_at_11.24.50_PM_qtyd5k.mp4",
   },
   {
-    title: "Custom Finishing",
-    description: "Built-ins, trim, flooring, lighting — we sweat the small stuff.",
-    imageUrl: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/5b37b20a-86b6-49b1-af9d-5ab25a370d98-livohaus-framer-website/assets/images/0hfvpTKH6RiitJ9zFmfivKBBNE-9.jpg",
-    gridClassName: "lg:col-span-2",
+    title: "Interior Styling",
+    description: "Curated interiors that harmonize aesthetics with everyday comfort.",
+    mediaType: "video",
+    gridClassName: "lg:col-span-1",
+    videoUrl: "https://res.cloudinary.com/dqvsoqsoy/video/upload/v1762633888/WhatsApp_Video_2025-11-08_at_11.17.12_PM_t6k1x5.mp4",
   },
 ];
 
 const Services = () => {
   const { ref, isVisible } = useScrollAnimation(0.1);
+  const [selectedVideoIndex, setSelectedVideoIndex] = useState<number | null>(null);
+  const modalVideoRef = useRef<HTMLVideoElement | null>(null);
+  const [modalVideoSize, setModalVideoSize] = useState<{ width: number; height: number } | null>(null);
+
+  const viewportPadding = 80;
+
+  const calculateModalSize = useCallback(
+    (width: number, height: number) => {
+      if (typeof window === "undefined") return { width, height };
+
+      const maxWidth = Math.max(window.innerWidth - viewportPadding, 320);
+      const maxHeight = Math.max(window.innerHeight - viewportPadding, 180);
+
+      const widthRatio = maxWidth / width;
+      const heightRatio = maxHeight / height;
+      const ratio = Math.min(widthRatio, heightRatio, 1);
+
+      return {
+        width: Math.round(width * ratio),
+        height: Math.round(height * ratio),
+      };
+    },
+    [viewportPadding]
+  );
+
+  const updateModalSizeFromVideo = useCallback(() => {
+    const videoElement = modalVideoRef.current;
+    if (!videoElement) return;
+
+    const { videoWidth, videoHeight } = videoElement;
+    if (!videoWidth || !videoHeight) return;
+
+    setModalVideoSize(calculateModalSize(videoWidth, videoHeight));
+  }, [calculateModalSize]);
+
+  useEffect(() => {
+    if (selectedVideoIndex === null) return;
+
+    const videoElement = modalVideoRef.current;
+    if (!videoElement) return;
+
+    const playVideo = async () => {
+      videoElement.currentTime = 0;
+      updateModalSizeFromVideo();
+      try {
+        await videoElement.play();
+      } catch {
+        // Autoplay might be blocked; allow user interaction to resume
+      }
+    };
+
+    playVideo();
+
+    const handleResize = () => updateModalSizeFromVideo();
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      videoElement.pause();
+      window.removeEventListener("resize", handleResize);
+    };
+  }, [selectedVideoIndex, updateModalSizeFromVideo]);
+
+  const closeModal = () => {
+    if (modalVideoRef.current) {
+      modalVideoRef.current.pause();
+    }
+    setSelectedVideoIndex(null);
+    setModalVideoSize(null);
+  };
+
+  const modalDimensions = useMemo(
+    () => modalVideoSize ?? calculateModalSize(960, 540),
+    [modalVideoSize, calculateModalSize]
+  );
+
+  const handleCardClick = (index: number) => {
+    setModalVideoSize(null);
+    setSelectedVideoIndex(index);
+  };
 
   return (
     <section id="services" className="bg-secondary dark:bg-[#0B0B0B] text-text-dark dark:text-white py-16 md:py-20 lg:py-[120px] transition-colors duration-300">
@@ -92,34 +176,37 @@ const Services = () => {
             </motion.div>
           </header>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {servicesData.map((service, index) => (
               <motion.div
                 key={service.title}
                 initial={{ opacity: 0, y: 50 }}
                 animate={isVisible ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
-                className={`group relative h-[480px] overflow-hidden rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.08)] dark:shadow-none border border-transparent dark:border-white/10 ${service.gridClassName}`}
+                onClick={() => handleCardClick(index)}
+                className={`group relative h-[480px] cursor-pointer overflow-hidden rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.08)] dark:shadow-none border border-transparent dark:border-white/10 ${service.gridClassName}`}
               >
                 <motion.div
                   whileHover={{ scale: 1.05 }}
                   transition={{ duration: 0.6, ease: "easeOut" }}
                   className="absolute inset-0"
                 >
-                  <Image
-                    src={service.imageUrl}
-                    alt={service.title}
-                    fill
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                    className="object-cover"
+                  <video
+                    src={service.videoUrl}
+                    className="h-full w-full object-cover"
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    poster="/services-video-placeholder.jpg"
                   />
                 </motion.div>
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0B0B0B]/90 via-[#0B0B0B]/60 to-transparent transition-opacity group-hover:from-[#0B0B0B]/95" />
+                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#0B0B0B]/90 via-[#0B0B0B]/60 to-transparent transition-opacity group-hover:from-[#0B0B0B]/95" />
                 <motion.div
                   initial={{ y: 20, opacity: 0 }}
                   whileInView={{ y: 0, opacity: 1 }}
                   transition={{ delay: index * 0.1 + 0.3 }}
-                  className="absolute bottom-0 left-0 right-0 z-10 p-8 text-white transform transition-transform group-hover:-translate-y-2"
+                  className="pointer-events-none absolute bottom-0 left-0 right-0 z-10 p-8 text-white transform transition-transform group-hover:-translate-y-2"
                 >
                   <h4 className="text-2xl font-semibold leading-[1.4] mb-2">{service.title}</h4>
                   <p className="text-sm text-white/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300">{service.description}</p>
@@ -135,6 +222,47 @@ const Services = () => {
               </motion.div>
             ))}
           </div>
+          {selectedVideoIndex !== null && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="fixed inset-0 z-[999] flex items-center justify-center bg-black/80 backdrop-blur-sm px-6 py-10"
+            >
+              <motion.div
+                initial={{ scale: 0.95, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                exit={{ scale: 0.95, opacity: 0 }}
+                transition={{ type: "spring", stiffness: 260, damping: 25 }}
+                className="relative flex w-full items-center justify-center"
+                style={{ width: modalDimensions.width, height: modalDimensions.height }}
+              >
+                <button
+                  onClick={closeModal}
+                  className="absolute -top-12 right-0 flex h-10 w-10 items-center justify-center rounded-full border border-white/20 bg-white/10 text-white transition hover:bg-white/20"
+                  aria-label="Close video"
+                >
+                  <X className="h-5 w-5" />
+                </button>
+                <div className="relative h-full w-full overflow-hidden rounded-2xl shadow-2xl">
+                  <video
+                    ref={modalVideoRef}
+                    src={servicesData[selectedVideoIndex].videoUrl}
+                    className="h-full w-full bg-black object-contain"
+                    controls
+                    autoPlay
+                    playsInline
+                    onLoadedMetadata={updateModalSizeFromVideo}
+                  />
+                </div>
+              </motion.div>
+              <button
+                onClick={closeModal}
+                className="absolute inset-0 -z-10 h-full w-full cursor-default"
+                aria-hidden="true"
+              />
+            </motion.div>
+          )}
         </div>
       </div>
     </section>

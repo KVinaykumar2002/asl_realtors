@@ -7,6 +7,7 @@ import { Menu, X, Sun, Moon } from "lucide-react";
 
 const NAV_LINKS = [
   { href: "/", label: "Home" },
+  { href: "/about", label: "About" },
   { href: "/services", label: "Services" },
   { href: "/properties", label: "Properties" },
   { href: "/calculators", label: "Calculators" },
@@ -86,20 +87,17 @@ export default function Navigation() {
       <nav className={navClassName} aria-label="Primary navigation">
         <Link
           href="/"
-          className="flex items-center gap-3 transition-transform duration-300 hover:opacity-95"
+          className="flex items-center transition-transform duration-300 hover:opacity-95"
           aria-label="ASL Realtors home"
         >
-          <div className="relative h-12 w-12 overflow-hidden rounded-xl bg-white/90 p-1 shadow-md dark:bg-white/10">
-            <Image
-              src="/logo.jpg"
-              alt="ASL Realtors logo"
-              fill
-              sizes="48px"
-              className="object-contain"
-              priority
-            />
-          </div>
-          <span className={`text-xl sm:text-2xl font-semibold tracking-wide ${baseTextColor}`}>ASL Realtors</span>
+          <Image
+            src="/logo.png"
+            alt="ASL Realtors logo"
+            width={200}
+            height={86}
+            className="h-12 w-auto object-contain"
+            priority
+          />
         </Link>
 
         <div className="hidden flex-1 items-center justify-center gap-12 lg:flex">
