@@ -10,7 +10,7 @@ const heroSlides = [
   {
     image: "/hero-1.png",
     badge: "#1 Choice for Home Renovation in Hyderabad",
-    title: "A Commercial Leasing Company for Retail, Office Spaces, Commercial Spaces, Land, Hospitality, Warehouses.",
+    title: "A Commercial Leasing Company for Retail.",
     description: "ASL Realtors transforms homes with timeless design, superior materials, and detail-driven construction — all managed with care from concept to completion.",
   },
   {

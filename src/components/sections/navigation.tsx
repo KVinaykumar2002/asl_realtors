@@ -18,10 +18,10 @@ const SERVICES_LINKS = [
 
 const NAV_LINKS = [
   { href: "/", label: "Home" },
-  { href: "/about", label: "About" },
+  { href: "/about", label: "Ideology" },
   { href: "/services", label: "Services", children: SERVICES_LINKS },
   { href: "/properties", label: "Properties" },
-  { href: "/forms", label: "Forms" },
+  { href: "/forms", label: "Entry Forms" },
 ];
 
 export default function Navigation() {
@@ -281,7 +281,7 @@ export default function Navigation() {
             onClick={() => setIsMenuOpen(false)}
             className="mt-3 inline-flex items-center justify-center rounded-full bg-gradient-to-r from-[#FF642F] to-[#FF4800] px-6 py-3 text-sm font-semibold uppercase tracking-[0.18em] text-white transition-transform duration-300 hover:translate-x-1 hover:shadow-[0_14px_40px_rgba(255,100,47,0.35)]"
           >
-            Contact →
+            Contact Us →
           </Link>
         </div>
       </div>
