@@ -4,8 +4,8 @@ import { useEffect, useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";
 
 const statsData = [
-  { value: 15, suffix: "+", title: "Years of Experience" },
-  { value: 40, suffix: "+", title: "Projects Completed" },
+  { value: 10, suffix: "+", title: "Years of Experience" },
+  { value: 120, suffix: "+", title: "Projects Completed" },
   { value: 100, suffix: "%", title: "Client Satisfaction" },
 ];
 

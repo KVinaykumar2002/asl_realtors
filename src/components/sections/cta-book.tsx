@@ -79,7 +79,7 @@ const CtaBook = () => {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="text-4xl lg:text-5xl font-bold max-w-4xl mx-auto leading-tight mb-4"
         >
-          Ready to Start Your <motion.span
+          Ready to Start  <motion.span
             initial={{ opacity: 0 }}
             animate={isVisible ? { opacity: 1 } : {}}
             transition={{ delay: 0.5 }}

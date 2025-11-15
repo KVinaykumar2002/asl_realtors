@@ -224,8 +224,8 @@ const AboutSection = () => {
               transition={{ duration: 0.6, delay: 0.7 }}
               className="grid grid-cols-1 sm:grid-cols-3 gap-8 mt-6"
             >
-              <StatCounter value={15} suffix="+" label="Years of Experience" />
-              <StatCounter value={40} suffix="+" label="Projects Completed" />
+              <StatCounter value={10} suffix="+" label="Years of Experience" />
+              <StatCounter value={120} suffix="+" label="Projects Completed" />
               <StatCounter value={100} suffix="%" label="Client Satisfaction" />
             </motion.div>
           </motion.div>
