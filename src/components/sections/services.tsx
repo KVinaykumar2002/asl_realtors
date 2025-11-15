@@ -8,36 +8,25 @@ import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 
 const servicesData = [
   {
-    title: "Full-Home Renovation",
-    description: "Complete home transformations tailored to your style and needs.",
+    title: "Marc salon equipments",
     mediaType: "video",
     gridClassName: "lg:col-span-1",
     videoUrl: "https://res.cloudinary.com/dqvsoqsoy/video/upload/v1762633896/WhatsApp_Video_2025-11-08_at_11.21.14_PM_twburd.mp4",
   },
   {
-    title: "Kitchen Remodeling",
-    description: "Smart, stylish kitchens built for daily living.",
+    title: "Opal dentistry",
     mediaType: "video",
     gridClassName: "lg:col-span-1",
     videoUrl: "https://res.cloudinary.com/dqvsoqsoy/video/upload/v1762633890/WhatsApp_Video_2025-11-08_at_11.21.17_PM_bxpuvh.mp4",
   },
   {
-    title: "Bathroom Renovation",
-    description: "Modern, functional bathrooms with lasting comfort and quality.",
-    mediaType: "video",
-    gridClassName: "lg:col-span-1",
-    videoUrl: "https://res.cloudinary.com/dqvsoqsoy/video/upload/v1762633889/WhatsApp_Video_2025-11-08_at_11.17.06_PM_qfymr0.mp4",
-  },
-  {
-    title: "Outdoor Living Spaces",
-    description: "Extend your home with inviting patios, decks, and garden zones.",
+    title: "Be spoke 108",
     mediaType: "video",
     gridClassName: "lg:col-span-1",
     videoUrl: "https://res.cloudinary.com/dqvsoqsoy/video/upload/v1762633905/WhatsApp_Video_2025-11-08_at_11.24.50_PM_qtyd5k.mp4",
   },
   {
-    title: "Interior Styling",
-    description: "Curated interiors that harmonize aesthetics with everyday comfort.",
+    title: "Master colonge",
     mediaType: "video",
     gridClassName: "lg:col-span-1",
     videoUrl: "https://res.cloudinary.com/dqvsoqsoy/video/upload/v1762633888/WhatsApp_Video_2025-11-08_at_11.17.12_PM_t6k1x5.mp4",
