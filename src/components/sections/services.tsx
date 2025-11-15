@@ -168,7 +168,7 @@ const Services = () => {
                 href="/#contact"
                 className="request-quote-button"
               >
-                <span className="request-quote-text">Request Free Quote</span>
+                <span className="request-quote-text">Enquiry Now</span>
                 <span className="request-quote-icon">
                   <ArrowRight className="h-5 w-5" />
                 </span>
@@ -208,7 +208,7 @@ const Services = () => {
                   transition={{ delay: index * 0.1 + 0.3 }}
                   className="pointer-events-none absolute bottom-0 left-0 right-0 z-10 p-8 text-white transform transition-transform group-hover:-translate-y-2"
                 >
-                  <h4 className="text-2xl font-semibold leading-[1.4] mb-2">{service.title}</h4>
+                  <h4 className="text-2xl font-semibold leading-[1.4] mb-2 text-white">{service.title}</h4>
                   <p className="text-sm text-white/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300">{service.description}</p>
                 </motion.div>
                 <motion.div

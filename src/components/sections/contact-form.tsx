@@ -38,7 +38,7 @@ const ContactFormSection = () => {
 
     const whatsappNumber = "916303822799";
     const whatsappMessage = [
-      "Hello ASL Realtors, I'd like to request a quote.",
+      "Hello ASL Realtors, I'd like to make an enquiry.",
       fullName ? `Name: ${fullName}` : null,
       email ? `Email: ${email}` : null,
       phone ? `Phone: ${phone}` : null,
@@ -235,7 +235,7 @@ const ContactFormSection = () => {
                   whileTap={{ scale: 0.97 }}
                   className="request-quote-button w-full justify-center mt-2"
                   >
-                  <span className="request-quote-text">Request Free Quote</span>
+                  <span className="request-quote-text">Enquiry Now</span>
                   <span className="request-quote-icon">
                     <ArrowRight className="h-5 w-5" />
                     </span>

@@ -110,7 +110,7 @@ const CtaBook = () => {
             whileTap={{ scale: 0.97 }}
             className="request-quote-button w-full sm:w-auto"
           >
-            <span className="request-quote-text">Request Free Quote</span>
+            <span className="request-quote-text">Enquiry Now</span>
             <span className="request-quote-icon">
               <ArrowRight className="h-5 w-5" />
             </span>

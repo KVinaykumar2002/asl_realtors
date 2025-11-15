@@ -78,9 +78,9 @@ const Footer = () => {
               whileHover={{ scale: 1.03, y: -2 }}
               whileTap={{ scale: 0.97 }}
               className="request-quote-button"
-              aria-label="Request a free quote"
+              aria-label="Enquiry Now"
             >
-              <span className="request-quote-text">Request Free Quote</span>
+              <span className="request-quote-text">Enquiry Now</span>
               <span className="request-quote-icon">
                 <ArrowRight className="h-5 w-5" />
               </span>
@@ -133,37 +133,28 @@ const Footer = () => {
               <li className="flex items-start">
                 <Phone className="w-4 h-4 mr-3 mt-1 flex-shrink-0" />
                 <a
-                  href="tel:617-555-0192"
+                  href="tel:+916303822799"
                   className="hover:text-[#FF5C28] transition-colors"
                 >
                   +91-63038 22799
                 </a>
               </li>
               <li className="flex items-start">
+                <Phone className="w-4 h-4 mr-3 mt-1 flex-shrink-0" />
+                <a
+                  href="tel:+914045259569"
+                  className="hover:text-[#FF5C28] transition-colors"
+                >
+                  +91-40452 59569
+                </a>
+              </li>
+              <li className="flex items-start">
                 <Mail className="w-4 h-4 mr-3 mt-1 flex-shrink-0" />
                 <a
-                  href="mailto:contact@livohaus.com"
+                  href="mailto:ceo@aslrealtors.com"
                   className="hover:text-[#FF5C28] transition-colors"
                 >
                   ceo@aslrealtors.com
-                </a>
-              </li>
-              <li className="flex items-start">
-                <Mail className="w-4 h-4 mr-3 mt-1 flex-shrink-0" />
-                <a
-                  href="mailto:Animesh@aslrealtors.com"
-                  className="hover:text-[#FF5C28] transition-colors"
-                >
-                  Animesh@aslrealtors.com
-                </a>
-              </li>
-              <li className="flex items-start">
-                <Mail className="w-4 h-4 mr-3 mt-1 flex-shrink-0" />
-                <a
-                  href="mailto:Saif@aslrealtors.com"
-                  className="hover:text-[#FF5C28] transition-colors"
-                >
-                  Saif@aslrealtors.com
                 </a>
               </li>
             </ul>

@@ -125,7 +125,7 @@ const Hero = () => {
                   whileTap={{ scale: 0.97 }}
                   className="request-quote-button"
                 >
-                  <span className="request-quote-text">Request Free Quote</span>
+                  <span className="request-quote-text">Enquiry Now</span>
                   <span className="request-quote-icon">
                   <ArrowRight className="w-5 h-5" />
                   </span>
