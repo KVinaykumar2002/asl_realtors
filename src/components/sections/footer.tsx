@@ -39,14 +39,14 @@ const Footer = () => {
   return (
     <footer
       ref={ref}
-      className="relative overflow-hidden bg-[#0B0B0B] text-white transition-colors duration-300"
+      className="relative bg-[#0B0B0B] text-white transition-colors duration-300 overflow-x-clip"
     >
       {/* Background ASL Realtors Watermark */}
       <motion.div
         style={{ y }}
-        className="absolute bottom-[10%] inset-x-0 flex justify-center pointer-events-none z-0"
+        className="absolute bottom-[10%] left-1/2 -translate-x-1/2 w-screen max-w-[100vw] flex justify-center items-center pointer-events-none z-0"
       >
-        <span className="font-black text-white/10 leading-none tracking-tight select-none text-[8rem] sm:text-[10rem] md:text-[12rem] lg:text-[14rem] xl:text-[16rem] whitespace-nowrap translate-y-[15%]">
+        <span className="font-black text-white/10 leading-none tracking-tight select-none text-[6rem] sm:text-[8rem] md:text-[10rem] lg:text-[12rem] xl:text-[14rem] 2xl:text-[16rem] whitespace-nowrap translate-y-[15%] inline-block">
           ASL Realtors
         </span>
       </motion.div>
@@ -62,21 +62,17 @@ const Footer = () => {
             transition={{ duration: 0.6 }}
             className="lg:col-span-2"
           >
-            <div className="flex items-center gap-4 mb-6">
+            <div className="flex items-center gap-4 mb-8">
               <Image
                 src="/logo.png"
                 alt="ASL Realtors logo"
-                width={300}
-                height={150}
-                className="h-16 sm:h-20 w-auto object-contain"
+                width={400}
+                height={200}
+                className="h-24 sm:h-32 md:h-40 lg:h-44 w-auto object-contain"
                 priority
               />
               <span className="text-xl font-semibold tracking-wide text-white"></span>
             </div>
-            <h2 className="text-3xl md:text-4xl lg:text-[2.75rem] font-semibold leading-snug text-white mb-8">
-              Your trusted partner in
-              <br /> home renovation & interiors.
-            </h2>
             <motion.a
               href="#contact"
               whileHover={{ scale: 1.03, y: -2 }}

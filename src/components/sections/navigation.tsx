@@ -19,6 +19,7 @@ const SERVICES_LINKS = [
 const NAV_LINKS = [
   { href: "/", label: "Home" },
   { href: "/about", label: "Ideology" },
+  { href: "/mission", label: "About Us" },
   { href: "/services", label: "Services", children: SERVICES_LINKS },
   { href: "/properties", label: "Properties" },
   { href: "/forms", label: "Entry Forms" },
