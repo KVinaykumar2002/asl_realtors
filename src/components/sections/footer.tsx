@@ -187,12 +187,22 @@ const Footer = () => {
           transition={{ delay: 0.8 }}
           className="border-t border-white/10 pt-8 flex flex-col sm:flex-row justify-between items-center text-sm text-[#A3A3A3] gap-4"
         >
-          <p>
+          <p className="flex items-center gap-2">
             © 2025 ASL Realtors ✦ Designed by{" "}
             <a
               href="#"
-              className="text-[#FF5C28] hover:underline transition-colors"
+              className="flex items-center gap-2 text-[#FF5C28] hover:underline transition-colors"
             >
+              <Image
+                src="/PHOTO-2025-11-15-22-41-28.jpg"
+                alt="OptiWebtrix logo"
+                width={24}
+                height={24}
+                className="h-6 w-auto object-contain"
+                style={{
+                  mixBlendMode: 'multiply',
+                }}
+              />
               OptiWebtrix Team
             </a>
           </p>
