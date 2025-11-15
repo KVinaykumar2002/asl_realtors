@@ -6,33 +6,23 @@ import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 const properties = [
   {
     id: 1,
-    title: "Modern Villa in Beverly Hills",
-    image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/5b37b20a-86b6-49b1-af9d-5ab25a370d98-livohaus-framer-website/assets/images/ZQ3SNXxBqH4iRTn5KzvSUUfFkXU-12.jpg",
+    title: "Modern Commercial Building",
+    image: "/Property.jpeg",
   },
   {
     id: 2,
-    title: "Luxury Apartment Downtown",
-    image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/5b37b20a-86b6-49b1-af9d-5ab25a370d98-livohaus-framer-website/assets/images/tUSgx4XMKr8Q8ZDMyDkJGYJXE-1.png",
+    title: "Brand Factory Retail Complex",
+    image: "/BrandFactory.jpeg",
   },
   {
     id: 3,
-    title: "Beachfront Property Malibu",
-    image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/5b37b20a-86b6-49b1-af9d-5ab25a370d98-livohaus-framer-website/assets/images/0hfvpTKH6RiitJ9zFmfivKBBNE-9.jpg",
+    title: "MassMutual & Medtronic Office Tower",
+    image: "/MassMutual.jpeg",
   },
   {
     id: 4,
-    title: "Contemporary Townhouse",
-    image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/5b37b20a-86b6-49b1-af9d-5ab25a370d98-livohaus-framer-website/assets/images/Im4wRuRxPa3ij9n8tGFDxaDAys-5.webp",
-  },
-  {
-    id: 5,
-    title: "Mountain View Estate",
-    image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/5b37b20a-86b6-49b1-af9d-5ab25a370d98-livohaus-framer-website/assets/images/POxVH1JgZSlrsqIG0tAPuthBD8-8.png",
-  },
-  {
-    id: 6,
-    title: "Vineyard Estate",
-    image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/5b37b20a-86b6-49b1-af9d-5ab25a370d98-livohaus-framer-website/assets/images/uh4xMEtnO7cYaQ5ItWn7lpfimTo-10.jpg",
+    title: "MPM Times Square Retail",
+    image: "/MPMTimesSquare.jpeg",
   },
 ];
 

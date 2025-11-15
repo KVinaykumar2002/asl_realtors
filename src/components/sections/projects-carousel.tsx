@@ -17,22 +17,28 @@ interface Project {
 
 const projects: Project[] = [
   {
-    title: "Sonoma Valley Vineyard Retreat",
-    description: "A rustic-modern retreat set among Sonoma's vineyards, designed for leisure, gatherings, and weekend escapes.",
-    image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/5b37b20a-86b6-49b1-af9d-5ab25a370d98-livohaus-framer-website/assets/images/6f942SvHyYRaCchW2zEcatndm0-11.jpg",
-    alt: "Aerial view of a vineyard retreat with pools and modern buildings",
+    title: "Modern Commercial Building",
+    description: "A stunning modern commercial building featuring contemporary architecture and premium design standards.",
+    image: "/Property.jpeg",
+    alt: "Modern commercial building with glass facade",
   },
   {
-    title: "Santa Monica Creative Studio",
-    description: "An industrial loft transformed into a vibrant, collaborative creative studio for a design-focused business.",
-    image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/5b37b20a-86b6-49b1-af9d-5ab25a370d98-livohaus-framer-website/assets/images/ZQ3SNXxBqH4iRTn5KzvSUUfFkXU-12.jpg",
-    alt: "Spacious industrial loft with high ceilings and studio lighting equipment",
+    title: "Brand Factory Retail Complex",
+    description: "A vibrant retail complex offering premium shopping experiences with modern amenities and design.",
+    image: "/BrandFactory.jpeg",
+    alt: "Brand Factory retail complex exterior",
   },
   {
-    title: "Beverly Hills Luxury Residence",
-    description: "A timeless family home renovation in Beverly Hills, designed to blend elegance, comfort, and modern luxury.",
-    image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/5b37b20a-86b6-49b1-af9d-5ab25a370d98-livohaus-framer-website/assets/images/uh4xMEtnO7cYaQ5ItWn7lpfimTo-10.jpg",
-    alt: "Elegant exterior of a modern luxury home at dusk",
+    title: "MassMutual & Medtronic Office Tower",
+    description: "A prestigious office tower housing leading corporations with state-of-the-art facilities and design.",
+    image: "/MassMutual.jpeg",
+    alt: "MassMutual and Medtronic office tower",
+  },
+  {
+    title: "MPM Times Square Retail",
+    description: "A premier retail destination featuring modern architecture and premium commercial spaces.",
+    image: "/MPMTimesSquare.jpeg",
+    alt: "MPM Times Square retail building",
   },
 ];
 
@@ -137,7 +143,7 @@ export default function ProjectsCarousel() {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="mt-6 text-[48px] font-bold leading-[1.2] -tracking-[0.01em] text-text-dark"
         >
-          Real Homes. <span className="text-primary">Remarkable Results.</span>
+          Commercial Leasing<span className="text-primary"> Experts</span>
         </motion.h2>
         <motion.p
           initial={{ opacity: 0 }}
@@ -163,7 +169,7 @@ export default function ProjectsCarousel() {
                 key={`${project.title}-${index}`}
               >
                 <div className="aspect-[4/3]">
-                  <ProjectCard project={project} index={index % 3} />
+                  <ProjectCard project={project} index={index % projects.length} />
                 </div>
               </div>
             ))}

@@ -8,20 +8,20 @@ import { useParallax } from "@/hooks/use-parallax";
 
 const heroSlides = [
   {
-    image: "/hero-1.png",
-    badge: "#1 Choice for Home Renovation in Hyderabad",
+    image: "/hero-4.jpeg",
+    badge: "Trusted partner in hyd",
     title: "Find Your Commercial Space in hyderabad.",
     description: "ASL Realtors transforms homes with timeless design, superior materials, and detail-driven construction — all managed with care from concept to completion.",
   },
   {
-    image: "/hero-2.webp",
+    image: "/hero-5.jpeg",
     badge: "Premium Real Estate Solutions",
     title: "Transform Your Vision Into Reality With Expert Craftsmanship",
     description: "Experience luxury living with our comprehensive renovation services designed to exceed your expectations.",
   },
   {
-    image: "/hero-3.webp",
-    badge: "Award-Winning Designs",
+    image: "/hero-6.jpeg",
+    badge: "Commercial leasing experts",
     title: "Closing Agreements with a Handshake, Creating Futures Through Trust",
     description: "From concept to completion, we deliver exceptional results that blend functionality with breathtaking aesthetics.",
   },

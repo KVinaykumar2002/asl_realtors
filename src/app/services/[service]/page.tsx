@@ -76,8 +76,8 @@ const SERVICES_CONTENT: Record<string, ServiceCopy> = {
     highlight: "Commercial",
     heroDescription:
       "Premium commercial real estate solutions for businesses seeking strategic locations and growth-oriented spaces.",
-    heroImage: "https://assets.executivecentre.com/assets/Banner-Product-PrivateOffice.jpg",
-    heroImageAlt: "Modern commercial building with glass facade",
+    heroImage: "/vaishnavi-tech-square.jpg",
+    heroImageAlt: "Vaishnavi Tech Square commercial building in Bangalore",
     narrative:
       "From standalone commercial buildings to mixed-use developments, we help businesses find the perfect commercial space that supports operations and enhances brand presence.",
     metrics: [
