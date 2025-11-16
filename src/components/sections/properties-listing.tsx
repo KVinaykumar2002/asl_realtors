@@ -24,6 +24,21 @@ const properties = [
     title: "MPM Times Square Retail",
     image: "/MPMTimesSquare.jpeg",
   },
+  {
+    id: 5,
+    title: "Ratnadeep Retail Outlet",
+    image: "/Ratnadeep.jpeg",
+  },
+  {
+    id: 6,
+    title: "AU Infra Commercial Project",
+    image: "/AUInfra.jpeg",
+  },
+  {
+    id: 7,
+    title: "F-Studio Fashion Showroom",
+    image: "/FStudio.jpeg",
+  },
 ];
 
 export default function PropertiesListing() {

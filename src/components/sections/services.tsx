@@ -37,6 +37,18 @@ const servicesData = [
     gridClassName: "lg:col-span-1",
     videoUrl: "https://res.cloudinary.com/dqvsoqsoy/video/upload/v1763285248/WhatsApp_Video_2025-11-16_at_2.37.01_PM_ij3c0g.mp4",
   },
+  {
+    title: "HYBON",
+    mediaType: "video",
+    gridClassName: "lg:col-span-1",
+    videoUrl: "https://res.cloudinary.com/dqvsoqsoy/video/upload/v1763286293/WhatsApp_Video_2025-11-16_at_3.13.52_PM_lvcbjx.mp4",
+  },
+  {
+    title: "The Chocolate Room",
+    mediaType: "video",
+    gridClassName: "lg:col-span-1",
+    videoUrl: "https://res.cloudinary.com/dqvsoqsoy/video/upload/v1763286302/WhatsApp_Video_2025-11-16_at_2.37.01_PM_wpzixy.mp4",
+  },
 ];
 
 const Services = () => {
