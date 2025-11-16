@@ -76,7 +76,7 @@ const SERVICES_CONTENT: Record<string, ServiceCopy> = {
     highlight: "Commercial",
     heroDescription:
       "Premium commercial real estate solutions for businesses seeking strategic locations and growth-oriented spaces.",
-    heroImage: "/vaishnavi-tech-square.jpg",
+    heroImage: "/commercial.webp",
     heroImageAlt: "Vaishnavi Tech Square commercial building in Bangalore",
     narrative:
       "From standalone commercial buildings to mixed-use developments, we help businesses find the perfect commercial space that supports operations and enhances brand presence.",
@@ -130,7 +130,7 @@ const SERVICES_CONTENT: Record<string, ServiceCopy> = {
     heroDescription:
       "Destination-driven hotels and resorts crafted with immersive guest journeys, brand expression, and operational resilience.",
     heroImage:
-      "https://s3.divcom.com/www.asaporg.com/images/front-desk-admin-talking-with-hotel-guest.jpg.large.1024x1024.jpg",
+      "/Hospitality.jpg",
     heroImageAlt: "Front desk administrator greeting a hotel guest in a contemporary lobby",
     narrative:
       "We blend market intelligence, concept storytelling, and operator alignment to create hospitality assets that welcome guests, conferences, and communities alike.",
@@ -183,7 +183,7 @@ const SERVICES_CONTENT: Record<string, ServiceCopy> = {
     highlight: "Warehouses",
     heroDescription:
       "Grade-A warehousing and cold-chain assets engineered for seamless inventory turn and digital visibility.",
-    heroImage: "/hero-3.webp",
+    heroImage: "/warehouse.jpg",
     heroImageAlt: "Interior of a high-bay warehouse with shelving",
     narrative:
       "We serve 3PLs, e-commerce, pharma, and retail networks with plug-and-play facilities, smart automation, and optimised last-mile access.",
@@ -236,7 +236,7 @@ const SERVICES_CONTENT: Record<string, ServiceCopy> = {
     highlight: "Open Plots",
     heroDescription:
       "Strategic land banks curated for residential, commercial, and mixed-use development pipelines.",
-    heroImage: "/hero-2.webp",
+    heroImage: "/openplots.webp",
     heroImageAlt: "Panoramic view of open land parcel ready for development",
     narrative:
       "We locate, diligence, and structure land parcels with clear titles, infrastructure potential, and master-planning vision tailored to your investment horizon.",
@@ -342,7 +342,7 @@ const SERVICES_CONTENT: Record<string, ServiceCopy> = {
     highlight: "Co-working",
     heroDescription:
       "Flexible, modern co-working environments designed for startups, freelancers, and growing businesses seeking collaborative workspaces.",
-    heroImage: "https://gofloaters.com/static/62941a09086df36c9cbef6368c62fb4d/14b42/pricing-options-for-coworking-spaces-in-gachibowli.jpg",
+    heroImage: "/co-working.jpg",
     heroImageAlt: "Modern co-working space with flexible seating and meeting areas",
     narrative:
       "We curate and manage premium co-working spaces that combine flexibility, community, and professional amenities to support modern workstyles and business growth.",

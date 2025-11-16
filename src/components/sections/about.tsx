@@ -132,7 +132,7 @@ const AboutSection = () => {
                 className="relative overflow-hidden rounded-2xl w-full h-[360px] sm:w-[388px] sm:h-[582px] shadow-2xl border border-white/10 dark:border-white/10 bg-white dark:bg-neutral-900/60 backdrop-blur-md transition-colors duration-300"
               >
                 <Image
-                  src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/5b37b20a-86b6-49b1-af9d-5ab25a370d98-livohaus-framer-website/assets/images/vFndoLcfA59aVF8pqjh2ugiHfE-2.jpeg"
+                  src="/commercial.webp"
                   alt="A serene outdoor seating area with two chairs, surrounded by lush greenery and a glassed-in structure."
                   fill
                   className="object-cover transition-transform duration-700 ease-out group-hover:scale-110"
@@ -152,7 +152,7 @@ const AboutSection = () => {
                   className="relative overflow-hidden rounded-2xl w-full h-[282px] sm:w-[282px] sm:h-[282px] shadow-xl border border-white/10 dark:border-white/10 bg-white dark:bg-neutral-900/60 backdrop-blur-md transition-colors duration-300"
                 >
                   <Image
-                    src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/5b37b20a-86b6-49b1-af9d-5ab25a370d98-livohaus-framer-website/assets/images/tdbYj955g6CmqYHaCPdteCGNbQ8-3.webp"
+                    src="/warehouse.jpg"
                     alt="Modern bathroom featuring wooden cabinetry, a bathtub, a sleek sink, and natural light from a window."
                     fill
                     className="object-cover transition-transform duration-700 ease-out group-hover:scale-110"
@@ -171,7 +171,7 @@ const AboutSection = () => {
                   className="relative overflow-hidden rounded-2xl w-full h-[282px] sm:w-[282px] sm:h-[282px] shadow-xl border border-white/10 dark:border-white/10 bg-white dark:bg-neutral-900/60 backdrop-blur-md transition-colors duration-300"
                 >
                   <Image
-                    src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/5b37b20a-86b6-49b1-af9d-5ab25a370d98-livohaus-framer-website/assets/images/0boRvvQ1DjJHQaXT7ksu9cmVRA-4.png"
+                    src="https://silver-foundation.com/wp-content/uploads/2024/09/interiror-design.jpg"
                     alt="Modern living room with abstract art, beige sectional sofa, indoor plants, and large windows."
                     fill
                     className="object-cover transition-transform duration-700 ease-out group-hover:scale-110"

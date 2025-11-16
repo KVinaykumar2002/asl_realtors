@@ -9,7 +9,7 @@ import { useParallax } from "@/hooks/use-parallax";
 const heroSlides = [
   {
     image: "/hero-4.jpeg",
-    badge: "Trusted partner in hyd",
+    badge: "Trusted partner in Real Estate",
     title: "Find Your Commercial Space in hyderabad.",
     description: "ASL Realtors transforms homes with timeless design, superior materials, and detail-driven construction — all managed with care from concept to completion.",
   },

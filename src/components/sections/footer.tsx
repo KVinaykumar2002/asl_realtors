@@ -154,7 +154,7 @@ const Footer = () => {
                   href="mailto:ceo@aslrealtors.com"
                   className="hover:text-[#FF5C28] transition-colors"
                 >
-                  ceo@aslrealtors.com
+                  info@aslrealtors.com
                 </a>
               </li>
             </ul>
@@ -191,19 +191,18 @@ const Footer = () => {
             © 2025 ASL Realtors ✦ Designed by{" "}
             <a
               href="#"
-              className="flex items-center gap-2 text-[#FF5C28] hover:underline transition-colors"
+              className="group inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[#FF6B2C] to-[#FF9F68] px-3 py-1.5 text-white shadow-[0_8px_24px_rgba(255,107,44,0.35)] ring-1 ring-white/20 transition-all hover:shadow-[0_12px_30px_rgba(255,107,44,0.45)]"
             >
               <Image
                 src="/PHOTO-2025-11-15-22-41-28.jpg"
-                alt="OptiWebtrix logo"
+                alt="Optiwebrix logo"
                 width={24}
                 height={24}
-                className="h-6 w-auto object-contain"
-                style={{
-                  mixBlendMode: 'multiply',
-                }}
+                className="h-6 w-6 rounded-full object-cover ring-2 ring-white/40"
               />
-              OptiWebtrix Team
+              <span className="font-semibold tracking-wide">
+                Optiwebrix Team
+              </span>
             </a>
           </p>
 

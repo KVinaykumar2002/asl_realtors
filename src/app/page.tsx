@@ -23,7 +23,7 @@ export default function Home() {
         <AboutSection />
         <Services />
         <ProjectsCarousel />
-        <ArchitecturalFloorDesign />
+        {/* <ArchitecturalFloorDesign /> */}
         <CtaBook />
         {/* <Testimonials /> */}
         {/* <Faq /> */}
