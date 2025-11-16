@@ -190,19 +190,22 @@ const Footer = () => {
           <p className="flex items-center gap-2">
             © 2025 ASL Realtors ✦ Designed by{" "}
             <a
-              href="#"
-              className="group inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[#FF6B2C] to-[#FF9F68] px-3 py-1.5 text-white shadow-[0_8px_24px_rgba(255,107,44,0.35)] ring-1 ring-white/20 transition-all hover:shadow-[0_12px_30px_rgba(255,107,44,0.45)]"
+              href="https://wa.me/917013892569"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 text-[#FF5C28] hover:underline transition-colors"
             >
               <Image
-                src="/PHOTO-2025-11-15-22-41-28.jpg"
-                alt="Optiwebrix logo"
+                src="/optiwebrix_logo.jpg"
+                alt="OptiWebtrix logo"
                 width={24}
                 height={24}
-                className="h-6 w-6 rounded-full object-cover ring-2 ring-white/40"
+                className="h-6 w-auto object-contain"
+                style={{
+                  mixBlendMode: 'multiply',
+                }}
               />
-              <span className="font-semibold tracking-wide">
-                Optiwebrix Team
-              </span>
+              OptiWebtrix Team
             </a>
           </p>
 

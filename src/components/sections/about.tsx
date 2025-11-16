@@ -2,6 +2,7 @@
 
 import { useEffect, useState, useRef } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import { Home } from 'lucide-react';
 import { motion, useInView } from 'framer-motion';
 import { useScrollAnimation } from '@/hooks/use-scroll-animation';
@@ -129,14 +130,21 @@ const AboutSection = () => {
               <motion.div
                 whileHover={{ scale: 1.02, rotateY: 5 }}
                 transition={{ duration: 0.3 }}
-                className="relative overflow-hidden rounded-2xl w-full h-[360px] sm:w-[388px] sm:h-[582px] shadow-2xl border border-white/10 dark:border-white/10 bg-white dark:bg-neutral-900/60 backdrop-blur-md transition-colors duration-300"
+                className="relative overflow-hidden rounded-2xl w-full h-[360px] sm:w-[388px] sm:h-[582px] shadow-2xl border border-white/10 dark:border-white/10 bg-white dark:bg-neutral-900/60 backdrop-blur-md transition-colors duration-300 cursor-pointer"
               >
+                <Link href="/services/retail-properties" className="absolute inset-0 z-10" aria-label="Go to Retail Space service" />
                 <Image
                   src="/commercial.webp"
-                  alt="A serene outdoor seating area with two chairs, surrounded by lush greenery and a glassed-in structure."
+                  alt="Retail Space"
                   fill
                   className="object-cover transition-transform duration-700 ease-out group-hover:scale-110"
                 />
+                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#0B0B0B]/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <div className="pointer-events-none absolute bottom-0 left-0 right-0 p-5">
+                  <span className="inline-block rounded-full bg-white/90 dark:bg-black/60 px-4 py-2 text-sm font-semibold text-[#0B0B0B] dark:text-white backdrop-blur-md shadow">
+                    Retail Space
+                  </span>
+                </div>
               </motion.div>
             </motion.div>
             <div className="flex flex-col gap-4 w-full sm:w-auto">
@@ -149,14 +157,21 @@ const AboutSection = () => {
                 <motion.div
                   whileHover={{ scale: 1.02, rotateZ: 2 }}
                   transition={{ duration: 0.3 }}
-                  className="relative overflow-hidden rounded-2xl w-full h-[282px] sm:w-[282px] sm:h-[282px] shadow-xl border border-white/10 dark:border-white/10 bg-white dark:bg-neutral-900/60 backdrop-blur-md transition-colors duration-300"
+                  className="relative overflow-hidden rounded-2xl w-full h-[282px] sm:w-[282px] sm:h-[282px] shadow-xl border border-white/10 dark:border-white/10 bg-white dark:bg-neutral-900/60 backdrop-blur-md transition-colors duration-300 cursor-pointer"
                 >
+                  <Link href="/services/warehouses" className="absolute inset-0 z-10" aria-label="Go to Warehouse service" />
                   <Image
                     src="/warehouse.jpg"
-                    alt="Modern bathroom featuring wooden cabinetry, a bathtub, a sleek sink, and natural light from a window."
+                    alt="Warehouse"
                     fill
                     className="object-cover transition-transform duration-700 ease-out group-hover:scale-110"
                   />
+                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#0B0B0B]/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  <div className="pointer-events-none absolute bottom-0 left-0 right-0 p-4">
+                    <span className="inline-block rounded-full bg-white/90 dark:bg-black/60 px-3 py-1.5 text-sm font-semibold text-[#0B0B0B] dark:text-white backdrop-blur-md shadow">
+                      Warehouse
+                    </span>
+                  </div>
                 </motion.div>
               </motion.div>
               <motion.div
@@ -168,14 +183,21 @@ const AboutSection = () => {
                 <motion.div
                   whileHover={{ scale: 1.02, rotateZ: -2 }}
                   transition={{ duration: 0.3 }}
-                  className="relative overflow-hidden rounded-2xl w-full h-[282px] sm:w-[282px] sm:h-[282px] shadow-xl border border-white/10 dark:border-white/10 bg-white dark:bg-neutral-900/60 backdrop-blur-md transition-colors duration-300"
+                  className="relative overflow-hidden rounded-2xl w-full h-[282px] sm:w-[282px] sm:h-[282px] shadow-xl border border-white/10 dark:border-white/10 bg-white dark:bg-neutral-900/60 backdrop-blur-md transition-colors duration-300 cursor-pointer"
                 >
+                  <Link href="/services/office-spaces" className="absolute inset-0 z-10" aria-label="Go to Office Space service" />
                   <Image
                     src="https://silver-foundation.com/wp-content/uploads/2024/09/interiror-design.jpg"
-                    alt="Modern living room with abstract art, beige sectional sofa, indoor plants, and large windows."
+                    alt="Office Space"
                     fill
                     className="object-cover transition-transform duration-700 ease-out group-hover:scale-110"
                   />
+                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#0B0B0B]/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  <div className="pointer-events-none absolute bottom-0 left-0 right-0 p-4">
+                    <span className="inline-block rounded-full bg-white/90 dark:bg.black/60 px-3 py-1.5 text-sm font-semibold text-[#0B0B0B] dark:text-white backdrop-blur-md shadow">
+                      Office Space
+                    </span>
+                  </div>
                 </motion.div>
               </motion.div>
             </div>

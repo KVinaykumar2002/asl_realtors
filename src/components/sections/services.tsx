@@ -31,6 +31,12 @@ const servicesData = [
     gridClassName: "lg:col-span-1",
     videoUrl: "https://res.cloudinary.com/dqvsoqsoy/video/upload/v1762633888/WhatsApp_Video_2025-11-08_at_11.17.12_PM_t6k1x5.mp4",
   },
+  {
+    title: "Lamiwood ",
+    mediaType: "video",
+    gridClassName: "lg:col-span-1",
+    videoUrl: "https://res.cloudinary.com/dqvsoqsoy/video/upload/v1763285248/WhatsApp_Video_2025-11-16_at_2.37.01_PM_ij3c0g.mp4",
+  },
 ];
 
 const Services = () => {
@@ -138,7 +144,7 @@ const Services = () => {
                 >
                   <Cog className="h-4 w-4 text-primary" />
                 </motion.div>
-                <h6 className="text-primary text-sm font-semibold uppercase tracking-[0.05em]">Our Services</h6>
+                <h6 className="text-primary text-sm font-semibold uppercase tracking-[0.05em]">Happy Clients</h6>
               </motion.div>
               <h2 className="text-[48px] font-bold leading-[1.2] tracking-[-0.01em] text-current dark:text-white transition-colors duration-300">
                 <span className="text-primary">Leased Out</span> properties
@@ -151,7 +157,7 @@ const Services = () => {
               className="w-full lg:flex-1 lg:max-w-[480px]"
             >
               <p className="text-body-regular text-text-body dark:text-neutral-400 mb-8 transition-colors duration-300">
-                From design to delivery, we offer end-to-end solutions tailored to your space, style, and schedule. Whether you're updating one room or remodeling your entire home, ASL Realtors makes it seamless.
+              ASL Realtors has successfully facilitated the leasing of the property in accordance with the client’s specific requirements. The process was handled with professionalism and attention to detail, ensuring that the client’s expectations were fully met and the outcome remained satisfactory.
               </p>
               <Link
                 href="/#contact"

@@ -151,7 +151,7 @@ export default function ProjectsCarousel() {
           transition={{ duration: 0.6, delay: 0.4 }}
           className="mt-6 max-w-3xl mx-auto text-lg leading-relaxed text-text-body"
         >
-          See how we turn everyday spaces into extraordinary living experiences — one project at a time.
+          Find the ideal office, industrial or retail property and healthcare, technology and more. Let us guide you.
         </motion.p>
       </div>
 
