@@ -52,7 +52,7 @@ const Footer = () => {
       </motion.div>
 
       {/* Footer Content */}
-      <div className="relative z-10 max-w-[1200px] mx-auto px-6 md:px-10 lg:px-20 pt-24 pb-20">
+      <div className="relative z-10 max-w-[1600px] mx-auto px-6 md:px-10 lg:px-20 pt-24 pb-20">
         <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-12 mb-16">
           {/* Left Column */}
           <motion.div
@@ -62,14 +62,15 @@ const Footer = () => {
             transition={{ duration: 0.6 }}
             className="lg:col-span-2"
           >
-            <div className="flex items-center gap-4 mb-8">
+            <div className="flex items-start gap-4 mb-8 w-full">
               <Image
-                src="/logo.png"
+                src="/LOGOFOOT.png"
                 alt="ASL Realtors logo"
-                width={400}
-                height={200}
-                className="h-32 sm:h-40 md:h-48 lg:h-56 xl:h-64 w-auto object-contain"
+                width={2000}
+                height={900}
+                className="h-[60rem] sm:h-[75rem] md:h-[90rem] lg:h-[110rem] xl:h-[140rem] 2xl:h-[160rem] w-auto min-w-[400px] sm:min-w-[500px] md:min-w-[600px] object-contain"
                 priority
+                style={{ maxHeight: 'none' }}
               />
               <span className="text-xl font-semibold tracking-wide text-white"></span>
             </div>
