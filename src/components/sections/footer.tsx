@@ -27,14 +27,10 @@ const Footer = () => {
   ];
 
   const services = [
-    { href: "/services/retail-properties", label: "Retail Properties" },
-    { href: "/services/commercial-properties", label: "Commercial Properties" },
-    { href: "/services/hospitality-properties", label: "Hospitality Properties" },
-    { href: "/services/warehouses", label: "Warehouse Solutions" },
-    { href: "/services/open-plots", label: "Open Plot Opportunities" },
-    { href: "/services/office-spaces", label: "Office Spaces" },
-    { href: "/services/co-working-spaces", label: "Co-working Spaces" },
-    { href: "/services/investments", label: "Investment Advisory" },
+    { href: "", label: "Project marketing" },
+    { href: "", label: "Property management" },
+    { href: "", label: "Real estate solutions" },
+    { href: "", label: "Land acquisition" },
   ];
 
   return (
@@ -56,7 +52,7 @@ const Footer = () => {
               {/* Logo */}
               <div className="flex-shrink-0 -m-2 w-full lg:w-auto">
                 <Image
-                  src="/LOGOFOOT.png"
+                  src="/asl logo blue tm.pdf (2).png"
                   alt="ASL Realtors logo"
                   width={500}
                   height={300}

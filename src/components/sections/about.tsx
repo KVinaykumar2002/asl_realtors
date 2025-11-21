@@ -187,7 +187,7 @@ const AboutSection = () => {
                 >
                   <Link href="/services/office-spaces" className="absolute inset-0 z-10" aria-label="Go to Office Space service" />
                   <Image
-                    src="https://silver-foundation.com/wp-content/uploads/2024/09/interiror-design.jpg"
+                    src="/image-generator (2).png"
                     alt="Office Space"
                     fill
                     className="object-cover transition-transform duration-700 ease-out group-hover:scale-110"

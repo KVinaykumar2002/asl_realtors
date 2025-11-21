@@ -128,11 +128,11 @@ export default function Navigation() {
           aria-label="ASL Realtors home"
         >
           <Image
-            src="/logo.png"
+            src="/asl logo blue tm.pdf (2).png"
             alt="ASL Realtors logo"
             width={240}
             height={104}
-            className="h-14 sm:h-16 w-auto object-contain"
+            className="h-20 sm:h-24 md:h-28 w-auto object-contain"
             priority
           />
         </Link>
