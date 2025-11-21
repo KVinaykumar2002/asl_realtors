@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { Search, MapPin, Bed, Bath, Maximize, Heart } from "lucide-react";
+import { Search, MapPin, Maximize, Heart, Building2, UtensilsCrossed, Briefcase, Store, Warehouse } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 
 // const properties = [
@@ -46,69 +46,69 @@ import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 const properties = [
   {
     id: 1,
-    title: "Modern Villa in Beverly Hills",
-    location: "Beverly Hills, CA",
-    price: "5,250,000",
-    bedrooms: 5,
-    bathrooms: 4,
-    area: "4,500",
-    image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/5b37b20a-86b6-49b1-af9d-5ab25a370d98-livohaus-framer-website/assets/images/ZQ3SNXxBqH4iRTn5KzvSUUfFkXU-12.jpg",
+    title: "Tech Hub Office Spaces",
+    location: "Kokapet, Financial District, Nanakramguda, Hitech City, Begumpet",
+    areaRange: "500 sq.ft to 5 Lakhs sq.ft",
+    propertyType: "office",
+    typeLabel: "Office Space",
+    image: "/co-working.jpg",
     featured: true,
+    icon: Building2,
   },
   {
     id: 2,
-    title: "Luxury Apartment Downtown",
-    location: "Los Angeles, CA",
-    price: "1,850,000",
-    bedrooms: 3,
-    bathrooms: 2,
-    area: "2,200",
-    image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/5b37b20a-86b6-49b1-af9d-5ab25a370d98-livohaus-framer-website/assets/images/tUSgx4XMKr8Q8ZDMyDkJGYJXE-1.png",
-    featured: false,
+    title: "Restaurant Space",
+    location: "Banjara Hills, Gachibowli, Jubilee Hills, Hitech City, Kondapur",
+    areaRange: "500 to 50,000 sq.ft",
+    propertyType: "restaurant",
+    typeLabel: "Restaurant",
+    image: "/Hospitality.jpg",
+    featured: true,
+    icon: UtensilsCrossed,
   },
   {
     id: 3,
-    title: "Beachfront Property Malibu",
-    location: "Malibu, CA",
-    price: "7,900,000",
-    bedrooms: 6,
-    bathrooms: 5,
-    area: "5,800",
-    image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/5b37b20a-86b6-49b1-af9d-5ab25a370d98-livohaus-framer-website/assets/images/0hfvpTKH6RiitJ9zFmfivKBBNE-9.jpg",
+    title: "Corporate Headquarters",
+    location: "Banjara Hills, Financial District, Nanakramguda, Kokapet, Narsingni",
+    areaRange: "3,000 to 5 Lakhs sq.ft",
+    propertyType: "corporate",
+    typeLabel: "Corporate Office",
+    image: "/commercial.webp",
     featured: true,
+    icon: Briefcase,
   },
   {
     id: 4,
-    title: "Contemporary Townhouse",
-    location: "San Francisco, CA",
-    price: "2,450,000",
-    bedrooms: 4,
-    bathrooms: 3,
-    area: "3,100",
-    image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/5b37b20a-86b6-49b1-af9d-5ab25a370d98-livohaus-framer-website/assets/images/Im4wRuRxPa3ij9n8tGFDxaDAys-5.webp",
+    title: "Retail Spaces",
+    location: "Banjara Hills, Jubilee Hills, Kokapet, Nanakramguda, Narsingni, Gachibowli, Hitech City, Madhapur, Begumpet, Secunderabad",
+    areaRange: "500 to 50,000 sq.ft",
+    propertyType: "retail",
+    typeLabel: "Retail Space",
+    image: "/Property.jpeg",
     featured: false,
+    icon: Store,
   },
   {
     id: 5,
-    title: "Mountain View Estate",
-    location: "Pasadena, CA",
-    price: "3,200,000",
-    bedrooms: 5,
-    bathrooms: 4,
-    area: "4,000",
-    image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/5b37b20a-86b6-49b1-af9d-5ab25a370d98-livohaus-framer-website/assets/images/POxVH1JgZSlrsqIG0tAPuthBD8-8.png",
+    title: "Warehouses & Industrial Shed",
+    location: "Balanagar, Shamsabad, Bholaram, Shameerpet, Patancheru, Kuthur, City Outskirts",
+    areaRange: "10,000 to 20 Lakhs sq.ft",
+    propertyType: "warehouse",
+    typeLabel: "Warehouse",
+    image: "/warehouse.jpg",
     featured: false,
+    icon: Warehouse,
   },
   {
     id: 6,
-    title: "Vineyard Estate",
-    location: "Sonoma Valley, CA",
-    price: "6,500,000",
-    bedrooms: 7,
-    bathrooms: 6,
-    area: "6,200",
-    image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/5b37b20a-86b6-49b1-af9d-5ab25a370d98-livohaus-framer-website/assets/images/uh4xMEtnO7cYaQ5ItWn7lpfimTo-10.jpg",
+    title: "Premium Retail Complex",
+    location: "Banjara Hills, Hyderabad",
+    areaRange: "2,000 to 15,000 sq.ft",
+    propertyType: "retail",
+    typeLabel: "Retail Space",
+    image: "/BrandFactory.jpeg",
     featured: true,
+    icon: Store,
   },
 ];
 
@@ -117,6 +117,34 @@ export default function PropertiesListing() {
   const [searchTerm, setSearchTerm] = useState("");
   const [priceRange, setPriceRange] = useState("all");
   const [propertyType, setPropertyType] = useState("all");
+
+  // Filter properties based on search and filters
+  const filteredProperties = properties.filter((property) => {
+    // Search filter
+    const matchesSearch = 
+      searchTerm === "" ||
+      property.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      property.location.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      property.typeLabel.toLowerCase().includes(searchTerm.toLowerCase());
+
+    // Property type filter
+    const matchesType = propertyType === "all" || property.propertyType === propertyType;
+
+    // Size range filter (simplified - checking if area range overlaps)
+    let matchesSize = true;
+    if (priceRange !== "all") {
+      const areaRange = property.areaRange.toLowerCase();
+      if (priceRange === "0-5000") {
+        matchesSize = areaRange.includes("500") || areaRange.includes("5,000") || areaRange.includes("5000");
+      } else if (priceRange === "5000-50000") {
+        matchesSize = areaRange.includes("5,000") || areaRange.includes("50,000") || areaRange.includes("50000");
+      } else if (priceRange === "50000+") {
+        matchesSize = areaRange.includes("lakhs") || areaRange.includes("20 lakhs") || areaRange.includes("5 lakhs");
+      }
+    }
+
+    return matchesSearch && matchesType && matchesSize;
+  });
 
   return (
     <section className="py-20 bg-background">
@@ -127,7 +155,7 @@ export default function PropertiesListing() {
             Featured <span className="text-primary">Properties</span>
           </h1>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Discover your dream home from our exclusive collection of luxury properties
+            Explore premium commercial and industrial spaces across Hyderabad's prime locations
           </p>
         </div>
 
@@ -149,10 +177,10 @@ export default function PropertiesListing() {
               onChange={(e) => setPriceRange(e.target.value)}
               className="px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:border-primary"
             >
-              <option value="all">All Prices</option>
-              <option value="0-2000000">Under $2M</option>
-              <option value="2000000-5000000">$2M - $5M</option>
-              <option value="5000000+">Above $5M</option>
+              <option value="all">All Sizes</option>
+              <option value="0-5000">Up to 5,000 sq.ft</option>
+              <option value="5000-50000">5,000 - 50,000 sq.ft</option>
+              <option value="50000+">Above 50,000 sq.ft</option>
             </select>
             <select
               value={propertyType}
@@ -160,16 +188,23 @@ export default function PropertiesListing() {
               className="px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:border-primary"
             >
               <option value="all">All Types</option>
-              <option value="villa">Villa</option>
-              <option value="apartment">Apartment</option>
-              <option value="townhouse">Townhouse</option>
+              <option value="office">Office Space</option>
+              <option value="restaurant">Restaurant</option>
+              <option value="corporate">Corporate Office</option>
+              <option value="retail">Retail Space</option>
+              <option value="warehouse">Warehouse</option>
             </select>
           </div>
         </div>
 
         {/* Properties Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {properties.map((property, index) => (
+          {filteredProperties.length === 0 ? (
+            <div className="col-span-full text-center py-12">
+              <p className="text-lg text-muted-foreground">No properties found matching your criteria.</p>
+            </div>
+          ) : (
+            filteredProperties.map((property, index) => (
             <div
               key={property.id}
               className={`bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 group ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
@@ -193,35 +228,29 @@ export default function PropertiesListing() {
               </div>
 
               <div className="p-6">
+                <div className="flex items-center gap-2 mb-3">
+                  {property.icon && <property.icon className="w-5 h-5 text-primary" />}
+                  <span className="text-xs font-semibold text-primary uppercase tracking-wide">{property.typeLabel}</span>
+                </div>
                 <h3 className="text-xl font-bold text-text-dark mb-2 group-hover:text-primary transition-colors">
                   {property.title}
                 </h3>
-                <div className="flex items-center gap-2 text-muted-foreground mb-4">
-                  <MapPin className="w-4 h-4" />
-                  <span className="text-sm">{property.location}</span>
+                <div className="flex items-start gap-2 text-muted-foreground mb-4">
+                  <MapPin className="w-4 h-4 mt-0.5 flex-shrink-0" />
+                  <span className="text-sm leading-relaxed">{property.location}</span>
                 </div>
 
                 <div className="flex items-center justify-between mb-4 pb-4 border-b border-gray-200">
-                  <div className="flex items-center gap-4">
-                    <div className="flex items-center gap-1 text-muted-foreground">
-                      <Bed className="w-4 h-4" />
-                      <span className="text-sm">{property.bedrooms}</span>
-                    </div>
-                    <div className="flex items-center gap-1 text-muted-foreground">
-                      <Bath className="w-4 h-4" />
-                      <span className="text-sm">{property.bathrooms}</span>
-                    </div>
-                    <div className="flex items-center gap-1 text-muted-foreground">
-                      <Maximize className="w-4 h-4" />
-                      <span className="text-sm">{property.area} sqft</span>
-                    </div>
+                  <div className="flex items-center gap-2 text-muted-foreground">
+                    <Maximize className="w-4 h-4" />
+                    <span className="text-sm font-medium">{property.areaRange}</span>
                   </div>
                 </div>
 
                 <div className="flex items-center justify-between">
                   <div>
-                    <p className="text-sm text-muted-foreground">Price</p>
-                    <p className="text-2xl font-bold text-primary">${property.price}</p>
+                    <p className="text-sm text-muted-foreground">Available</p>
+                    <p className="text-lg font-bold text-primary">Contact for Pricing</p>
                   </div>
                   <button className="bg-primary text-white px-6 py-2 rounded-full hover:bg-button-hover transition-colors font-semibold">
                     View Details
@@ -229,7 +258,8 @@ export default function PropertiesListing() {
                 </div>
               </div>
             </div>
-          ))}
+            ))
+          )}
         </div>
 
         {/* Load More */}
